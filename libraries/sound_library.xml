@@ -9,5 +9,13 @@
                 <fade in="1.66667" out="0.666667"/>
             </effects>
         </sound>
+
+        <!-- docking voices -->
+        <sound id="voice_argon_station" description="XBTF Argon Trading Station welcome" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\argon-dock"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
     </add>
 </diff>
