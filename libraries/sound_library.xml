@@ -17,5 +17,40 @@
                 <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
             </effects>
         </sound>
+
+        <sound id="voice_boron_station" description="XBTF Boron Trading Station welcome" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\boron-dock"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_teladi_station" description="XBTF Teladi Trading Station welcome" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\teladi-dock"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_split_station" description="XBTF Split Trading Station welcome" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\split-dock"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_player_station" description="XBTF Player Trading Station welcome" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\player-dock"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_paranid_station" description="XBTF Paranid Trading Station welcome" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\paranid-dock"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
     </add>
 </diff>

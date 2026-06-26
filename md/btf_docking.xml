@@ -58,7 +58,7 @@
                     <delay min="1.0s" max="4.0s" />
                     <actions>
                         <stop_music />
-                        <play_sound sound="'voice_argon_station'" type="ui" />
+                        <play_sound sound="'voice_teladi_station'" type="ui" />
                         <!-- TODO: Play xbtf cutscene with voice audio -->
                     </actions>
                 </cue>
