@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content
+    id="x4_btf"
+    name="X4: Beyond The Frontier"
+    description="An attempt to remaster XBTF in X4 Engine"
+    author="Sudo1701"
+    version="0.1"
+    date="2026-06-23"
+    save="0"
+    enabled="1"
+/>

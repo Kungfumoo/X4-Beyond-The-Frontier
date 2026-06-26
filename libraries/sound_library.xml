@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+    <add sel="//soundlibrary">
+        <!-- no repeat is intentional, will cover cases that I've missed to stop music & docking won't take that long anyways -->
+        <sound id="music_legacy_docking" description="Music from XBTF for docking" repeat="1" is3d="0" preload="0">
+            <sample start="extensions\x4_btf\music\legacy\00014"/>
+            <volume start="0.8"/>
+            <effects>
+                <fade in="1.66667" out="0.666667"/>
+            </effects>
+        </sound>
+    </add>
+</diff>

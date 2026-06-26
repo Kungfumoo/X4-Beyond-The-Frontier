@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="BtfDocking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../x4source/md/md.xsd">
+    <cues>
+        <!-- cue to check if player is onboard a ship and signal the LegacyDocking cue to start-->
+        <cue name="PlayerOnShip" checkinterval="5s"> <!-- no instantiate, once player is on ship this cue 'completes' and is never ran again unless explicity told too (see LeftShip cue)-->
+            <conditions>
+                <check_value value="player.occupiedship != null" />
+            </conditions>
+            <actions>
+                <signal_cue cue="LegacyDocking" />
+            </actions>
+        </cue>
+
+        <!-- main cue for handling legacy docking, instatiated per signal (which will be per ship) and cleaned up when they leave ship -->
+        <cue name="LegacyDocking" instantiate="true" namespace="this"> <!-- namespace this means that this refers to this instance of LegacyDocking -->
+            <conditions>
+                <event_cue_signalled />
+            </conditions>
+            <actions>
+                <set_value name="$ship" exact="player.occupiedship" />
+                <debug_text text="'LegacyDocking enabled for ' + $ship.name" />
+            </actions>
+            <cues>
+                <cue name="LeftShip">
+                    <conditions>
+                        <event_entity_left space="$ship" />
+                        <check_value value="event.param.isclass.player and $ship.isplayerowned"/>
+                    </conditions>
+                    <actions>
+                        <debug_text text="'LegacyDocking disabled for ' + $ship.name" />
+                        <cancel_cue cue="this" />
+                        <reset_cue cue="PlayerOnShip" />
+                    </actions>
+                </cue>
+                <cue name="ToDock" instantiate="true">
+                    <conditions>
+                        <event_object_dock_assigned object="$ship" check="false" />
+                    </conditions>
+                    <actions>
+                        <play_music music="'music_legacy_docking'" />
+                    </actions>
+                </cue>
+                <cue name="EndDocking" instantiate="true">
+                    <conditions>
+                        <check_any>
+                            <event_object_docking_started object="$ship" check="false" />
+                            <event_object_docking_aborted object="$ship" check="false" />
+                        </check_any>
+                    </conditions>
+                    <actions>
+                        <stop_music />
+                    </actions>
+                </cue>
+                <cue name="HasDocked" instantiate="true">
+                    <conditions>
+                        <event_object_docked object="$ship" check="false" />
+                    </conditions>
+                    <actions>
+                        <stop_music />
+                        <!-- TODO: Play xbtf cutscene with voice audio -->
+                    </actions>
+                </cue>
+            </cues>
+        </cue>
+    </cues>
+</mdscript>
