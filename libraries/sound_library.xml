@@ -52,5 +52,12 @@
                 <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
             </effects>
         </sound>
+
+        <sound id="voice_default_station" description="XBTF Fallback Trading Station welcome" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\default-dock"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
     </add>
 </diff>

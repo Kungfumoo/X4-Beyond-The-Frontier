@@ -58,8 +58,33 @@
                     <delay min="1.0s" max="4.0s" />
                     <actions>
                         <stop_music />
-                        <play_sound sound="'voice_teladi_station'" type="ui" />
-                        <!-- TODO: Play xbtf cutscene with voice audio -->
+                        <set_value name="$dockingTarget" exact="event.param"/>
+
+                        <do_if value="$dockingTarget.isclass.station"> <!-- Don't bother with capital ships -->
+                            <set_value name="$dockingRace" exact="$dockingTarget.owner.primaryrace"/>
+                            <set_value name="$voiceTrack" exact="'voice_default_station'" />
+
+                            <do_if value="$dockingTarget.isplayerowned">
+                                <set_value name="$voiceTrack" exact="'voice_player_station'" />
+                            </do_if>
+                            <do_elseif value="$dockingRace == race.argon">
+                                <set_value name="$voiceTrack" exact="'voice_argon_station'" />
+                            </do_elseif>
+                            <do_elseif value="$dockingRace == race.boron">
+                                <set_value name="$voiceTrack" exact="'voice_boron_station'" />
+                            </do_elseif>
+                            <do_elseif value="$dockingRace == race.paranid">
+                                <set_value name="$voiceTrack" exact="'voice_paranid_station'" />
+                            </do_elseif>
+                            <do_elseif value="$dockingRace == race.teladi">
+                                <set_value name="$voiceTrack" exact="'voice_teladi_station'" />
+                            </do_elseif>
+                            <do_elseif value="$dockingRace == race.split">
+                                <set_value name="$voiceTrack" exact="'voice_split_station'" />
+                            </do_elseif>
+
+                            <play_sound sound="$voiceTrack" type="ui" />
+                        </do_if>
                     </actions>
                 </cue>
             </cues>
