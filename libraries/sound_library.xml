@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff>
     <add sel="//soundlibrary">
+        <sound id="music_xbtf_menu_main_music" description="Music for the main menu from xbtf" repeat="-1" is3d="0" preload="0">
+            <sample start="extensions\x4_btf\music\legacy\main-menu"/>
+            <volume start="0.4"/>
+            <effects>
+            <fade in="1.66667" out="0.666667"/>
+            </effects>
+        </sound>
+
         <!-- no repeat is intentional, will cover cases that I've missed to stop music & docking won't take that long anyways -->
         <sound id="music_legacy_docking" description="Music from XBTF for docking" repeat="1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00014"/>
@@ -60,6 +68,7 @@
             </effects>
         </sound>
     </add>
+
     <replace sel="//soundlibrary/sound[@id='player_death']">
         <sound id="player_death" description="XBTF Death Music" repeat="1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00013"/>
