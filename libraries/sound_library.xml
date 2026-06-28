@@ -3,9 +3,25 @@
     <add sel="//soundlibrary">
         <sound id="music_xbtf_menu_main_music" description="Music for the main menu from xbtf" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\main-menu"/>
-            <volume start="0.4"/>
+            <volume start="1.0"/>
             <effects>
-            <fade in="1.66667" out="0.666667"/>
+                <fade in="1.66667" out="0.666667"/>
+            </effects>
+        </sound>
+
+        <sound id="music_xbtf_fight_1" description="xbtf fight music track 1" repeat="-1" is3d="0" preload="0">
+            <sample start="extensions\x4_btf\music\legacy\00030"/>
+            <volume start="1.5"/>
+            <effects>
+                <fade in="1.66667" out="0.666667"/>
+            </effects>
+        </sound>
+
+        <sound id="music_xbtf_fight_2" description="xbtf fight music track 2" repeat="-1" is3d="0" preload="0">
+            <sample start="extensions\x4_btf\music\legacy\00031"/>
+            <volume start="1.0"/>
+            <effects>
+                <fade in="1.66667" out="0.666667"/>
             </effects>
         </sound>
 
