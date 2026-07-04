@@ -2,7 +2,8 @@
 <diff>
     <add sel="//startmenu/background">
         <scene cutscene="startmenu_x4btf_background" music="music_xbtf_menu_main_music" map="blackgalaxy_macro" >
-            <cluster name="cluster_black_macro" background="cluster_sm_basegame_background_macro" />
+            <cluster name="cluster_black_macro" background="cluster_sm_x4btf_background_macro" />
+            <paintmod default="paintmod_0006" />
         </scene>
     </add>
 </diff>

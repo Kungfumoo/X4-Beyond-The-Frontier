@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff>
+    <add sel="//index">
+        <entry name="startmenu_x4btf_macro" value="extensions\x4_btf\assets\cutscenecore\macros\startmenu_x4btf_macro" />
+        <entry name="cluster_sm_x4btf_background_macro" value="extensions\x4_btf\assets\environments\cluster\macros\cluster_sm_x4btf_background_macro" />
+    </add>
+</diff>

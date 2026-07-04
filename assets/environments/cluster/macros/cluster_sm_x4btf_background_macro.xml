@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="cluster_sm_x4btf_background_macro" class="celestialbody">
+    <component ref="Cluster_104" />
+  </macro>
+</macros>

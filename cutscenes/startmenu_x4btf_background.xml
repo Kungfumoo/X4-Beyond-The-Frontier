@@ -6,13 +6,13 @@
   <!-- The environment is automatically deduced from the reference object. -->
   <environments>
     <environment_plot name="scenezone">
-      <anchor name="startmenu_final_macro" />
+      <anchor name="startmenu_x4btf_macro" />
       <!-- teleport zone="@auto:@playership" -->
       <teleport zone="tzonecluster_black_sector01_zone_macro">
         <offset>
-          <position x="0" y="0" z="0"/>
-          <!--<position x="-11680" y="15000" z="11900"/>
-          <rotation yaw="-50"/>-->
+          <!-- <position x="0" y="0" z="0"/> -->
+          <position x="-1579593" y="0" z="-1.743375E+08" />
+          <rotation yaw="-179"/>
         </offset>
       </teleport>
     </environment_plot>

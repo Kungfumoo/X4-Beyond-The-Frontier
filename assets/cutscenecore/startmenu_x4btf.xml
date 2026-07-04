@@ -1,0 +1,1258 @@
+<?xml version="1.0"?>
+<components>
+	<component name="startmenu_x4btf" class="cutsceneanchor">
+		<source geometry="assets\cutscenecore\\startmenu_final_data"/>
+		<properties>
+			<events>
+				<event name="playNext" frame="12000" param1="0" param2="" param3="startmenu_background" param4=""/>
+			</events>
+		</properties>
+		<layers>
+			<layer>
+				<waypoints/>
+				<lights>
+					<omni name="XU Omni001" shadow="0" r="0" g="33" b="52" range="50000" shadowrange="50000" lighteffect="1" trigger="1" intensity="1" specularintensity="1">
+						<lightanimations/>
+						<offset>
+							<position x="-22303.19" y="-8919.183" z="-7837.414"/>
+						</offset>
+					</omni>
+					<omni name="XU Omni01" shadow="0" r="255" g="255" b="223" range="500000" shadowrange="500000" lighteffect="1" lenseffect="sun_c_14" trigger="1" intensity="1.15" specularintensity="1">
+						<lightanimations/>
+						<offset>
+							<position x="-358837.5" y="69504" z="-518242"/>
+						</offset>
+					</omni>
+					<ambient name="XU Ambient01" r="19" g="28" b="35" range="1E+11" intensity="1">
+						<lightanimations/>
+						<offset>
+							<position x="19221.66" y="-13625" z="45102.23"/>
+						</offset>
+					</ambient>
+				</lights>
+				<effectemitters>
+				</effectemitters>
+			</layer>
+		</layers>
+		<connections>
+			<connection name="container" tags="contents" value="0"/>
+			<connection name="position" tags="position" value="1"/>
+			<connection name="space" tags="cutsceneanchor">
+				<offset/>
+			</connection>
+			<!-- X-Shuttle -->
+			<connection name="Connection03" tags="part animation  ">
+				<offset>
+					<position x="0.3783" y="-30.65823" z="100.8676"/>
+				</offset>
+				<!-- Starts the docking animation
+				<animations>
+					<animation name="loop" start="0" end="12000"/>
+				</animations>
+				-->
+				<parts>
+					<part name="ShipDummy">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="dummy.transparent"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="226.9049" y="39.30373" z="485.952"/>
+							<center x="226.4049" y="-38.30373" z="-485.452"/>
+						</size>
+						<size_raw>
+							<max x="0.5" y="0.5" z="0.5"/>
+							<center x="0" y="0.5" z="0"/>
+						</size_raw>
+					</part>
+				</parts>
+				<waypoints/>
+			</connection>
+			<connection name="ConnectionFor_ship_ter_s_xperimental_01_a_macro" tags="ship_s iklink" parent="ShipDummy"/>
+			<connection name="Connection04" tags="part animation  ">
+				<offset/>
+				<animations>
+					<animation name="cutsceneloop" start="1" end="10"/>
+					<animation name="gamestart1" start="1000" end="2000" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter01"/>
+						</sounds>
+					</animation>
+					<animation name="gamestart3" start="3000" end="4000" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter03"/>
+						</sounds>
+					</animation>
+					<animation name="gamestart4" start="5000" end="6000" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter04"/>
+						</sounds>
+					</animation>
+				</animations>
+				<parts>
+					<part name="anim_anchor">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="argon.ar_hulls_02"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="0.5" y="0.5" z="0.5"/>
+							<center x="0" y="0" z="0"/>
+						</size>
+						<size_raw>
+							<max x="0.5" y="0.5" z="0.5"/>
+							<center x="0" y="0" z="0"/>
+						</size_raw>
+						<sounds>
+							<sound name="XU SoundEmitter01" ref="intro1_start">
+								<offset/>
+							</sound>
+							<sound name="XU SoundEmitter03" ref="intro3_start">
+								<offset>
+									<position x="1.929092" y="0" z="0"/>
+								</offset>
+							</sound>
+							<sound name="XU SoundEmitter04" ref="intro4_start">
+								<offset>
+									<position x="4.578326" y="0" z="0"/>
+								</offset>
+							</sound>
+						</sounds>
+					</part>
+				</parts>
+				<waypoints/>
+				<camera name="Camera01" fov="90"/>
+				<offset>
+					<quaternion qx="0.7071075" qy="3.791748E-04" qz="3.792383E-04" qw="-0.7071059"/>
+				</offset>
+			</connection>
+			<connection name="Connection05" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="-25136.09" y="-46.40625" z="-203260.7"/>
+					<quaternion qx="-0" qy="-0.9990482" qz="-0" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="atmosphereb">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_atmo_cluster11_moon1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="4593.042" y="4592.66" z="4592.611"/>
+							<center x="1.919922" y="34.5332" z="-26.64063"/>
+						</size>
+						<size_raw>
+							<max x="4592.633" y="4558.126" z="4565.889"/>
+							<center x="1.921875" y="34.5332" z="-26.65625"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection06" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="10464.56" y="-9276" z="-230261.8"/>
+					<quaternion qx="-0" qy="-0.9990482" qz="-0" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="atmosphere001">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_atmo_cluster11_planet1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="11881.11" y="11881.18" z="11881.11"/>
+							<center x="3.007813" y="27.46875" z="-33.85938"/>
+						</size>
+						<size_raw>
+							<max x="11881.16" y="11853.71" z="11847.12"/>
+							<center x="3.009766" y="27.46875" z="-33.85938"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection07" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="10464.56" y="-9276" z="-230261.8"/>
+					<quaternion qx="-0" qy="-0.9990482" qz="-0" qw="-4.361922E-02"/>
+				</offset>
+				<parts>
+					<part name="planet001c">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_planet_cluster11_planet1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="11591.05" y="11590.08" z="11589.95"/>
+							<center x="1.914063" y="34.59277" z="-26.64063"/>
+						</size>
+						<size_raw>
+							<max x="11590.63" y="11555.49" z="11563.23"/>
+							<center x="1.915039" y="34.59277" z="-26.64063"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection08" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="-25136.09" y="-46.40625" z="-203260.7"/>
+					<quaternion qx="-0" qy="-0.9990482" qz="-0" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="Sphere03">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_planet_cluster11_moon1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="4481.073" y="4481.1" z="4481.078"/>
+							<center x="0" y="0" z="0"/>
+						</size>
+						<size_raw>
+							<max x="4481.073" y="4481.1" z="4481.073"/>
+							<center x="0" y="0" z="0"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection09" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="-23840.55" y="-1271.5" z="-187531.6"/>
+					<quaternion qx="-0" qy="-0.9990482" qz="-0" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="part_c11_bg">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.p1_env_bg_vertexcolor_screen"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="146635.5" y="146690.1" z="146635.5"/>
+							<center x="0.015625" y="0" z="0.015625"/>
+						</size>
+						<size_raw>
+							<max x="146635.5" y="146690.1" z="146635.5"/>
+							<center x="0" y="0" z="0.046875"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection10" tags="part noshadowcaster  " parent="anim_anchor">
+				<offset>
+					<position x="-29182.12" y="-1271.5" z="-186675.7"/>
+					<quaternion qx="-0" qy="-0.9990482" qz="-0" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="Background02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.backgroundstars"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="127623.5" y="127663.5" z="127623.5"/>
+							<center x="-3.90625E-03" y="0.0078125" z="0.015625"/>
+						</size>
+						<size_raw>
+							<max x="127623.5" y="127663.5" z="127623.5"/>
+							<center x="-1.171875E-02" y="0.0078125" z="0.015625"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection11" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="-37513.85" y="6754" z="-198268.8"/>
+					<quaternion qx="3.813323E-09" qy="-0.9990482" qz="-8.733956E-08" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="mediumstar02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="118010.1" y="100036.9" z="113149.5"/>
+							<center x="-4267.238" y="-8713.598" z="13495.31"/>
+						</size>
+						<size_raw>
+							<max x="114935.3" y="108750.5" z="126965.4"/>
+							<center x="-4267.238" y="-8713.605" z="13495.31"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection12" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="-34386.63" y="-3912" z="-187827.3"/>
+					<quaternion qx="4.557645E-08" qy="-0.9990482" qz="-4.176312E-08" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="smallstar02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="122896.9" y="100767.3" z="107533"/>
+							<center x="-9721.219" y="65.30078" z="-1144.281"/>
+						</size>
+						<size_raw>
+							<max x="113112.9" y="100702" z="107240.3"/>
+							<center x="-9721.219" y="65.28906" z="-1144.281"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection13" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="-52915.55" y="7490" z="-189764.2"/>
+					<quaternion qx="4.557645E-08" qy="-0.9990482" qz="-4.176312E-08" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="nebula001">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="107515.3" y="111991.3" z="122055.4"/>
+							<center x="1462.832" y="4938.629" z="9620.844"/>
+						</size>
+						<size_raw>
+							<max x="109811.1" y="107052.7" z="131512.1"/>
+							<center x="1462.836" y="4938.618" z="9620.844"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection14" tags="part  " parent="anim_anchor">
+				<offset>
+					<position x="-41728.76" y="5810" z="-182296.3"/>
+					<quaternion qx="-0" qy="-0.9990482" qz="-0" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="bigstar02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="108138.9" y="100279.5" z="100722.2"/>
+							<center x="10287.67" y="-5361.859" z="-7981.125"/>
+						</size>
+						<size_raw>
+							<max x="117691.8" y="105641.3" z="91874.83"/>
+							<center x="10287.69" y="-5361.863" z="-7981.125"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection15" tags="part noshadowcaster  " parent="anim_anchor">
+				<offset>
+					<position x="-23840.55" y="-1271.5" z="-187531.6"/>
+					<quaternion qx="-0" qy="-0.9990482" qz="-0" qw="-4.361933E-02"/>
+				</offset>
+				<parts>
+					<part name="Background005">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.backgroundstars_solid"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="158951.9" y="159001.8" z="158951.9"/>
+							<center x="0" y="0" z="0.0625"/>
+						</size>
+						<size_raw>
+							<max x="158952" y="159001.8" z="158952"/>
+							<center x="0" y="0.0078125" z="0.046875"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<!-- L Terran Ship -->
+			<connection name="Connection16" tags="part " parent="anim_anchor">
+				<offset>
+					<position x="200.3783" y="-10.65823" z="600.8676"/>
+				</offset>
+				<parts>
+					<part name="ShipDummy05"> <!-- TODO: ShipDummy05 doesn't exist in the asset data and causes an error, but gets the desired effect..... -->
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="dummy.transparent"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="48677.96" y="11.84022" z="255398"/>
+							<center x="-48677.46" y="-10.83018" z="-255397.6"/>
+						</size>
+						<size_raw>
+							<max x="0.5" y="3.552714E-15" z="0.5"/>
+							<center x="0" y="0.5000001" z="0"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="ConnectionFor_ship_ter_l_flagship_01_a_macro" tags="ship_l iklink" parent="ShipDummy05"/>
+			<connection name="Connection19" tags="part animation noshadowcaster  " parent="anim_anchor">
+				<offset>
+					<position x="-38302.22" y="24.50354" z="32139.38"/>
+					<quaternion qx="-0" qy="-0.4226182" qz="-0" qw="0.9063078"/>
+				</offset>
+				<parts>
+					<part name="triggerpart_eventhorizon">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="effects.lightcone_soft"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="1765.368" y="1765.368" z="1.984597E-03"/>
+							<center x="2.074219" y="2.671753" z="2.464844"/>
+						</size>
+						<size_raw>
+							<max x="1762.147" y="1762.696" z="6.317707E-05"/>
+							<center x="2.070313" y="2.671814" z="2.466797"/>
+						</size_raw>
+					</part>
+				</parts>
+				<animations/>
+			</connection>
+			<connection name="Connection20" tags="part iklink nocollision animation noshadowcaster  " parent="triggerpart_eventhorizon">
+				<offset>
+					<quaternion qx="2.193503E-07" qy="-2.618747E-07" qz="-0.8660254" qw="0.5"/>
+				</offset>
+				<animations>
+					<animation name="loop" start="100" end="1300"/>
+				</animations>
+				<parts>
+					<part name="anim_whirl002">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1effects.p1_gatewhirl_01"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="1821.34" y="1821.34" z="27.23436"/>
+							<center x="-7.265625" y="3.490448E-04" z="6.091797"/>
+						</size>
+						<size_raw>
+							<max x="1821.339" y="1821.339" z="17.74961"/>
+							<center x="-7.265625" y="1.049042E-04" z="6.095703"/>
+						</size_raw>
+						<offset>
+							<position x="1.726151E-03" y="-4.036903E-03" z="-1.171875E-02"/>
+						</offset>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection21" tags="part iklink nocollision animation noshadowcaster  " parent="triggerpart_eventhorizon">
+				<animations>
+					<animation name="loop" start="100" end="1300"/>
+				</animations>
+				<parts>
+					<part name="anim_whirl001">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1effects.p1_gatewhirl_01"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="1921.446" y="1921.446" z="33.6307"/>
+							<center x="25.76172" y="0" z="-21.61914"/>
+						</size>
+						<size_raw>
+							<max x="1921.446" y="1921.446" z="67.26141"/>
+							<center x="29.14063" y="0" z="-24.45117"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection22" tags="part iklink nocollision animation textureanimation noshadowcaster  " parent="triggerpart_eventhorizon">
+				<animations>
+					<animation name="loop" start="100" end="1300"/>
+				</animations>
+				<parts>
+					<part name="anim_whirl_center">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1effects.p1_gatewhirl_02"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="1761.204" y="1761.204" z="75.66709"/>
+							<center x="0.984375" y="0" z="-0.8261719"/>
+						</size>
+						<size_raw>
+							<max x="1761.204" y="1761.204" z="76.95325"/>
+							<center x="0.984375" y="0" z="-0.8261719"/>
+						</size_raw>
+						<uv_animations>
+							<uv_animation mapchannel="3">
+								<uv_property name="u_offset" controller="linear_float">
+									<key frame="0" value="0"/>
+									<key frame="100" value="0"/>
+									<key frame="1300" value="1"/>
+								</uv_property>
+								<uv_property name="v_offset" controller="linear_float">
+									<key frame="0" value="-0"/>
+									<key frame="100" value="-0"/>
+									<key frame="1300" value="-2"/>
+								</uv_property>
+							</uv_animation>
+							<uv_animation mapchannel="2">
+								<uv_property name="u_offset" controller="linear_float">
+									<key frame="0" value="0"/>
+									<key frame="100" value="0"/>
+									<key frame="1300" value="1"/>
+								</uv_property>
+								<uv_property name="v_offset" controller="linear_float">
+									<key frame="0" value="-0"/>
+									<key frame="100" value="-0"/>
+									<key frame="1300" value="-2"/>
+								</uv_property>
+							</uv_animation>
+							<uv_animation mapchannel="1">
+								<uv_property name="u_offset" controller="linear_float">
+									<key frame="0" value="0"/>
+									<key frame="100" value="0"/>
+									<key frame="1300" value="1"/>
+								</uv_property>
+								<uv_property name="v_offset" controller="linear_float">
+									<key frame="0" value="-0"/>
+									<key frame="100" value="-0"/>
+									<key frame="1300" value="-2"/>
+								</uv_property>
+							</uv_animation>
+						</uv_animations>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection23" tags="part noshadowcaster  ">
+				<offset>
+					<position x="235247.3" y="0" z="-464790.8"/>
+					<quaternion qx="-0" qy="-1" qz="-0" qw="7.54979E-08"/>
+				</offset>
+				<parts>
+					<part name="part_c23_bg">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.p1_env_bg_vertexcolor_screen"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="149325" y="149325" z="149325"/>
+							<center x="0" y="0" z="0"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection24" tags="part  ">
+				<offset>
+					<position x="220659.5" y="582" z="-457051.3"/>
+				</offset>
+				<parts>
+					<part name="atmosphere03">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_atmo_cluster23_planet1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="11881.19" y="11881.18" z="11881.19"/>
+							<center x="-30.82813" y="27.46924" z="14.3125"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection25" tags="part  ">
+				<offset>
+					<position x="220659.5" y="582" z="-457051.3"/>
+					<quaternion qx="-0" qy="-1" qz="-0" qw="1.947072E-07"/>
+				</offset>
+				<parts>
+					<part name="planet001c02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_planet_cluster23_planet1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="11591.38" y="11590.08" z="11589.21"/>
+							<center x="24.03125" y="34.59277" z="-11.65625"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection26" tags="part  ">
+				<offset>
+					<position x="271255.5" y="4080" z="-419819.3"/>
+					<quaternion qx="-0" qy="-1" qz="-0" qw="7.54979E-08"/>
+				</offset>
+				<parts>
+					<part name="Sphere04">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_planet_cluster23_moon1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="4481.1" y="4481.1" z="4481.1"/>
+							<center x="0" y="0" z="0"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection27" tags="part  ">
+				<offset>
+					<position x="271255.5" y="4080" z="-419819.3"/>
+				</offset>
+				<parts>
+					<part name="atmosphereb02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_atmo_cluster23_moon1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="4593.174" y="4592.66" z="4592.312"/>
+							<center x="-24.03125" y="34.5332" z="11.65625"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection28" tags="part noshadowcaster  ">
+				<offset>
+					<position x="231568.5" y="0" z="-467220.8"/>
+					<quaternion qx="-0" qy="-1" qz="-0" qw="7.54979E-08"/>
+				</offset>
+				<parts>
+					<part name="Background03">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.backgroundstars"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="126421.1" y="127663.5" z="126421.1"/>
+							<center x="-0.015625" y="0.0078125" z="0"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection29" tags="part  ">
+				<offset>
+					<position x="237410" y="17.07422" z="-463470.3"/>
+					<quaternion qx="4.371138E-08" qy="-1" qz="-4.37114E-08" qw="1.947072E-07"/>
+				</offset>
+				<parts>
+					<part name="smallstar001">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="103700.8" y="97714.89" z="105104"/>
+							<center x="-4708.531" y="-221.5313" z="-3250.813"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection30" tags="part  ">
+				<offset>
+					<position x="236884" y="1128.25" z="-463924.3"/>
+					<quaternion qx="4.371138E-08" qy="-1" qz="-4.37114E-08" qw="1.947072E-07"/>
+				</offset>
+				<parts>
+					<part name="mediumstar001">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="102128.2" y="95648.3" z="101149.4"/>
+							<center x="1973.141" y="-1637.309" z="-3814.438"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection31" tags="part  ">
+				<offset>
+					<position x="240855.5" y="-3218" z="-468762.3"/>
+					<quaternion qx="-0" qy="-1" qz="-0" qw="7.54979E-08"/>
+				</offset>
+				<parts>
+					<part name="bigstar001">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="96036.08" y="93581.67" z="97738.64"/>
+							<center x="-4796.094" y="1091.977" z="903.1875"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection32" tags="part  ">
+				<offset>
+					<position x="248619.5" y="-4062" z="-468291.3"/>
+					<quaternion qx="4.371138E-08" qy="-1" qz="-4.37114E-08" qw="1.947072E-07"/>
+				</offset>
+				<parts>
+					<part name="nebula02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="112846" y="85190.94" z="110786.9"/>
+							<center x="-2920.328" y="-4990.426" z="1174.188"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection33" tags="part noshadowcaster  ">
+				<offset>
+					<position x="235247.3" y="0" z="-464790.8"/>
+					<quaternion qx="-0" qy="-1" qz="-0" qw="7.54979E-08"/>
+				</offset>
+				<parts>
+					<part name="Background006">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.backgroundstars_solid"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="155075.2" y="156599.2" z="155075.2"/>
+							<center x="-0.03125" y="0" z="0"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection34" tags="part  ">
+				<offset>
+					<position x="235283.7" y="-503.6914" z="-462478.5"/>
+					<quaternion qx="-0" qy="0.1305262" qz="-0" qw="-0.9914448"/>
+				</offset>
+				<parts>
+					<part name="StationHolder02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="dummy.transparent"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="2.5" y="2.5" z="2.5"/>
+							<center x="0" y="2.5" z="0"/>
+						</size>
+						<offset>
+							<position x="-0.03125" y="0" z="0.09375"/>
+						</offset>
+					</part>
+				</parts>
+				<waypoints/>
+			</connection>
+			<connection name="Connection35" tags="part  ">
+				<offset>
+					<position x="-7898.695" y="-948.0092" z="-195939.7"/>
+					<quaternion qx="-0" qy="0.6087614" qz="-0" qw="-0.7933534"/>
+				</offset>
+				<parts>
+					<part name="StationHolder03">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="dummy.transparent"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="2.5" y="2.5" z="2.5"/>
+							<center x="0" y="2.5" z="0"/>
+						</size>
+						<offset>
+							<position x="-2.832031E-02" y="0" z="0.015625"/>
+						</offset>
+					</part>
+				</parts>
+				<waypoints/>
+			</connection>
+			<connection name="Connection36" tags="part noshadowcaster ">
+				<offset>
+					<position x="-97927.13" y="-3243.557" z="-512316.7"/>
+				</offset>
+				<parts>
+					<part name="part_c06_bg">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.backgroundstars_solid"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="163464.3" y="163464.9" z="163464.3"/>
+							<center x="-0.0078125" y="-5.859375E-03" z="0"/>
+						</size>
+						<offset>
+							<position x="-0.0078125" y="0" z="0.03125"/>
+						</offset>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection37" tags="part  ">
+				<offset>
+					<position x="-95482.81" y="10925.68" z="-465426.5"/>
+				</offset>
+				<parts>
+					<part name="atmosphereb03">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_atmo_cluster06_planet2"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="4829.973" y="4829.432" z="4829.066"/>
+							<center x="-25.28125" y="36.31445" z="12.25"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection38" tags="part  ">
+				<offset>
+					<position x="-117863.3" y="2790.779" z="-493430.8"/>
+				</offset>
+				<parts>
+					<part name="planet001b">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_planet_cluster06_planet1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="12188.97" y="12187.6" z="12186.68"/>
+							<center x="-25.26563" y="36.37646" z="12.28125"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection39" tags="part  ">
+				<offset>
+					<position x="-117863.3" y="2790.779" z="-493430.8"/>
+				</offset>
+				<parts>
+					<part name="atmosphere04">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_atmo_cluster06_planet1"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="12493.7" y="12492.29" z="12491.35"/>
+							<center x="-25.26563" y="36.37744" z="12.28125"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection40" tags="part  ">
+				<offset>
+					<position x="-95482.81" y="10925.68" z="-465426.5"/>
+				</offset>
+				<parts>
+					<part name="Sphere001">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sm_planet_cluster06_planet2"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="4712.121" y="4712.121" z="4712.121"/>
+							<center x="0" y="0" z="0"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection41" tags="part  ">
+				<offset>
+					<position x="-78525.59" y="-5401.404" z="-521492.4"/>
+				</offset>
+				<parts>
+					<part name="mediumstar03">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="105854.1" y="97047.13" z="109623.9"/>
+							<center x="-14037.48" y="5547.181" z="15474.59"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection42" tags="part  ">
+				<offset>
+					<position x="-87309.75" y="7602.972" z="-508488"/>
+				</offset>
+				<parts>
+					<part name="smallstar03">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="111985.1" y="100472.8" z="100844.1"/>
+							<center x="-1498.453" y="-11308.1" z="-5221.656"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection43" tags="part  ">
+				<offset>
+					<position x="-84407.16" y="-11130.21" z="-514627.3"/>
+				</offset>
+				<parts>
+					<part name="nebula90">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="110840.9" y="118752.4" z="107843.2"/>
+							<center x="-2854.844" y="5040.818" z="5869.656"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection44" tags="part  ">
+				<offset>
+					<position x="-89066.56" y="1587.731" z="-505222.6"/>
+				</offset>
+				<parts>
+					<part name="bigstar03">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.staratlas_additive"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="101889" y="98888.4" z="100879.4"/>
+							<center x="-6811.109" y="-6458.622" z="-7139.188"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection45" tags="part  ">
+				<offset>
+					<position x="9010.469" y="33086.59" z="-511476.5"/>
+				</offset>
+				<parts>
+					<part name="sun_v002">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="newplanets.sun_v2red"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="8911.688" y="8913.798" z="8911.688"/>
+							<center x="182.6074" y="-79.76172" z="86.8125"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection46" tags="part  ">
+				<offset>
+					<position x="-94031.53" y="-3243.557" z="-509762.6"/>
+				</offset>
+				<parts>
+					<part name="Background07">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.backgroundstars"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="147460" y="148909.2" z="147460"/>
+							<center x="0" y="-5.859375E-03" z="0"/>
+						</size>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection47" tags="part  ">
+				<offset>
+					<position x="-95872.63" y="-489.0575" z="-504732.9"/>
+					<quaternion qx="-0" qy="4.361938E-02" qz="-0" qw="-0.9990482"/>
+				</offset>
+				<parts>
+					<part name="stationholder01">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="dummy.transparent"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="2.5" y="2.5" z="2.5"/>
+							<center x="0" y="2.5" z="0"/>
+						</size>
+					</part>
+				</parts>
+				<waypoints/>
+			</connection>
+			<connection name="Connection48" tags="part animation  ">
+				<offset>
+					<position x="7.478329" y="3.863886" z="13.06893"/>
+					<quaternion qx="0.0429567" qy="-0.1734829" qz="-7.574422E-03" qw="-0.9838704"/>
+				</offset>
+				<animations>
+					<animation name="loop" start="0" end="506"/>
+				</animations>
+				<parts>
+					<part name="Shape02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1.multimat"/>
+									<material id="2" ref="p1.multimat"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="3.199561" y="2.253201" z="0.351507"/>
+							<center x="7.629395E-06" y="-3.814697E-06" z="-2.861023E-06"/>
+						</size>
+						<size_raw>
+							<max x="3.199562" y="2.253201" z="0.3515063"/>
+							<center x="7.152557E-06" y="-3.814697E-06" z="-1.907349E-06"/>
+						</size_raw>
+					</part>
+				</parts>
+				<waypoints/>
+			</connection>
+			<connection name="Connection49" tags="part animation  " parent="Shape02">
+				<parts>
+					<part name="logo_bg">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="p1effects.logo_parallax"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="2.285476" y="1.760735" z="3.009006E-05"/>
+							<center x="-0.4847898" y="-0.3550241" z="0.5849676"/>
+						</size>
+						<size_raw>
+							<max x="2.941101" y="2.147865" z="0.3514485"/>
+							<center x="-0.4847903" y="-0.3550246" z="0.5849676"/>
+						</size_raw>
+					</part>
+				</parts>
+				<animations>
+					<animation name="loop" start="0" end="12000"/>
+				</animations>
+			</connection>
+			<connection name="Connection50" tags="part animation iklink  " parent="Shape02">
+				<offset>
+					<position x="2.477841" y="1.760517" z="-1.781892"/>
+				</offset>
+				<animations/>
+				<parts>
+					<part name="Sphere006">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="dummy.transparent"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="0.1059179" y="0.1074241" z="0.1032759"/>
+							<center x="2.622604E-04" y="-1.104832E-03" z="-1.123428E-03"/>
+						</size>
+						<size_raw>
+							<max x="0.1" y="0.1" z="0.1"/>
+							<center x="0" y="0" z="0"/>
+						</size_raw>
+						<lights>
+							<omni name="XU Omni004" shadow="0" r="243" g="243" b="243" range="4" shadowrange="4" lighteffect="1" trigger="1" intensity="1.2" specularintensity="1">
+								<lightanimations/>
+								<offset/>
+							</omni>
+						</lights>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection51" tags="part iklink  " parent="Shape02">
+				<offset>
+					<position x="-1.239506" y="-1.737565" z="-3.312559"/>
+				</offset>
+				<parts>
+					<part name="Sphere002">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="dummy.transparent"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="0.1049138" y="0.1043754" z="0.1049486"/>
+							<center x="-1.662254E-03" y="-2.183855E-03" z="8.583069E-05"/>
+						</size>
+						<size_raw>
+							<max x="0.1" y="0.1" z="0.1"/>
+							<center x="0" y="0" z="0"/>
+						</size_raw>
+						<lights>
+							<omni name="XU Omni003" shadow="0" r="243" g="243" b="243" range="10" shadowrange="10" lighteffect="1" trigger="1" intensity="1.5" specularintensity="1">
+								<lightanimations/>
+								<offset/>
+							</omni>
+						</lights>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection52" tags="part animation iklink  " parent="Shape02">
+				<offset>
+					<position x="-0.5990417" y="-9.536743E-07" z="-3.06009"/>
+				</offset>
+				<animations/>
+				<parts>
+					<part name="Sphere01">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="dummy.transparent"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="0.1059175" y="0.1074242" z="0.1032749"/>
+							<center x="2.613068E-04" y="-1.104593E-03" z="-1.126289E-03"/>
+						</size>
+						<size_raw>
+							<max x="0.1" y="0.1" z="0.1"/>
+							<center x="0" y="0" z="0"/>
+						</size_raw>
+						<lights>
+							<omni name="XU Omni02" shadow="0" r="243" g="243" b="243" range="10" shadowrange="10" lighteffect="1" trigger="1" intensity="2" specularintensity="1">
+								<lightanimations/>
+								<offset/>
+							</omni>
+						</lights>
+					</part>
+				</parts>
+			</connection>
+			<connection name="PlayerConnection01" value="-1" tags="player ">
+				<offset/>
+			</connection>
+			<connection name="lensConnection" value="-1" tags="lensflare">
+				<offset>
+					<position x="128.8594" y="0" z="1.536123E-05"/>
+				</offset>
+			</connection>
+		</connections>
+	</component>
+</components>

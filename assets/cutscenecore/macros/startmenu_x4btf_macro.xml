@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="startmenu_x4btf_macro" class="cutsceneanchor">
+    <component ref="startmenu_x4btf" />
+    <connections>
+        <connection ref="ConnectionFor_ship_ter_s_xperimental_01_a_macro">
+            <macro ref="ship_ter_s_xperimental_01_a_macro" connection="position" />
+        </connection>
+        <connection ref="ConnectionFor_ship_ter_l_flagship_01_a_macro">
+            <macro ref="ship_ter_l_flagship_01_a_macro" connection="position" />
+        </connection>
+    </connections>
+  </macro>
+</macros>

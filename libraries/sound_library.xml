@@ -11,7 +11,7 @@
 
         <sound id="music_sector_00021" description="Music selection for 00021" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00021"/>
-            <volume start="0.4"/>
+            <volume start="0.5"/>
             <effects>
                 <fade in="1.66667" out="0.666667"/>
             </effects>
@@ -19,7 +19,7 @@
 
         <sound id="music_sector_00022" description="Music selection for 00022" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00022"/>
-            <volume start="0.4"/>
+            <volume start="0.5"/>
             <effects>
                 <fade in="1.66667" out="0.666667"/>
             </effects>
@@ -27,7 +27,7 @@
 
         <sound id="music_sector_00023" description="Music selection for 00023" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00023"/>
-            <volume start="0.4"/>
+            <volume start="0.5"/>
             <effects>
                 <fade in="1.66667" out="0.666667"/>
             </effects>
@@ -35,7 +35,7 @@
 
         <sound id="music_sector_00024" description="Music selection for 00024" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00024"/>
-            <volume start="0.4"/>
+            <volume start="0.5"/>
             <effects>
                 <fade in="1.66667" out="0.666667"/>
             </effects>
@@ -43,7 +43,7 @@
 
         <sound id="music_sector_00025" description="Music selection for 00025" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00025"/>
-            <volume start="0.4"/>
+            <volume start="0.5"/>
             <effects>
                 <fade in="1.66667" out="0.666667"/>
             </effects>
@@ -51,7 +51,7 @@
 
         <sound id="music_sector_00026" description="Music selection for 00026" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00026"/>
-            <volume start="0.4"/>
+            <volume start="0.5"/>
             <effects>
                 <fade in="1.66667" out="0.666667"/>
             </effects>
@@ -59,7 +59,7 @@
 
         <sound id="music_sector_00027" description="Music selection for 00027" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00027"/>
-            <volume start="0.4"/>
+            <volume start="0.5"/>
             <effects>
                 <fade in="1.66667" out="0.666667"/>
             </effects>
