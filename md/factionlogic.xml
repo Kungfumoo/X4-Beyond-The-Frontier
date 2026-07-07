@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+    <!-- Disable crisis -->
+    <remove sel="//mdscript/cues/cue[@name='FactionLogicManagers']/cues/cue[@name='XenonFactionLogic']/cues/cue[@name='XenonFactionLogic_KhaakCrisis']" />
+</diff>
