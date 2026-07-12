@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdscript name="BtfSetup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../x4source/md/md.xsd">
+    <cues>
+        <!-- Disable most of X4's factions -->
+        <cue name="FactionSetup">
+            <conditions>
+                <event_game_started />
+            </conditions>
+            <actions>
+                <debug_text text="'Factions setup for X4BTF'" />
+
+                <set_faction_active faction="faction.holyorder" active="false" />
+                <set_faction_active faction="faction.trinity" active="false" />
+                <set_faction_active faction="faction.alliance" active="false" />
+                <set_faction_active faction="faction.antigone" active="false" />
+                <set_faction_active faction="faction.buccaneers" active="false" />
+                <set_faction_active faction="faction.hatikvah" active="false" />
+                <set_faction_active faction="faction.holyorderfanatic" active="false" />
+                <set_faction_active faction="faction.khaak" active="false" />
+                <set_faction_active faction="faction.ministry" active="false" />
+                <!-- TODO: dlc factions -->
+            </actions>
+        </cue>
+    </cues>
+</mdscript>
