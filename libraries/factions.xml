@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+TODO:
+    - Rename scaleplate to 'pirates'
+    - Ensure factions such as antigone, buccaneers etc are set to inactive which is done via cue then here
+    - Redo relations
+    - Ensure Terrans are hidden and are inactive as they are only relevant at the start
+-->
+<diff>
+    <!-- Paranid Empire -->
+    <replace sel="//factions/faction[@id='paranid']/@name">'Paranid Empire'</replace>
+    <replace sel="//factions/faction[@id='paranid']/@description">'TODO'</replace>
+
+    <replace sel="//factions/faction[@id='paranid']/relations">
+        <relations>
+            <relation faction="criminal" relation="-0.5" />
+            <relation faction="khaak" relation="-1" />
+            <relation faction="outlaw" relation="-0.032" />
+            <relation faction="smuggler" relation="-0.06" />
+
+            <relation faction="scaleplate" relation="-0.32" />
+            <relation faction="argon" relation="-0.1" />
+            <relation faction="xenon" relation="-1" />
+        </relations>
+    </replace>
+
+    <!-- Argon Federation -->
+    <replace sel="//factions/faction[@id='argon']/@description">'TODO'</replace>
+
+    <replace sel="//factions/faction[@id='argon']/relations">
+        <relations>
+            <relation faction="criminal" relation="-0.5" />
+            <relation faction="khaak" relation="-1" />
+            <relation faction="outlaw" relation="-0.032" />
+            <relation faction="smuggler" relation="-0.06" />
+
+            <relation faction="scaleplate" relation="-0.32" />
+            <relation faction="paranid" relation="-0.1" />
+            <relation faction="split" relation="-0.1" />
+            <relation faction="xenon" relation="-1" />
+            <relation faction="boron" relation="1" />
+        </relations>
+    </replace>
+
+    <!-- Kingdom of Boron -->
+    <replace sel="//factions/faction[@id='boron']/@name">'Kingdom of Boron'</replace>
+    <replace sel="//factions/faction[@id='boron']/@description">'TODO'</replace>
+
+    <replace sel="//factions/faction[@id='boron']/relations">
+        <relations>
+            <relation faction="criminal" relation="-0.5" />
+            <relation faction="khaak" relation="-1" />
+            <relation faction="outlaw" relation="-0.032" />
+            <relation faction="smuggler" relation="-0.06" />
+
+            <relation faction="scaleplate" relation="-0.32" />
+            <relation faction="split" relation="-1" />
+            <relation faction="xenon" relation="-1" />
+            <relation faction="argon" relation="1" />
+        </relations>
+    </replace>
+
+    <!-- Teladi Company -->
+    <replace sel="//factions/faction[@id='teladi']/@description">'TODO'</replace>
+
+    <replace sel="//factions/faction[@id='teladi']/relations">
+        <relations>
+            <relation faction="criminal" relation="-0.5" />
+            <relation faction="khaak" relation="-1" />
+            <relation faction="outlaw" relation="-0.032" />
+            <relation faction="smuggler" relation="-0.06" />
+
+            <relation faction="xenon" relation="-1" />
+        </relations>
+    </replace>
+
+    <!-- Split Dynasty -->
+    <replace sel="//factions/faction[@id='split']/@name">'Split Dynasty'</replace>
+    <replace sel="//factions/faction[@id='split']/@description">'TODO'</replace>
+
+    <replace sel="//factions/faction[@id='split']/relations">
+        <relations>
+            <relation faction="criminal" relation="-0.5" />
+            <relation faction="khaak" relation="-1" />
+            <relation faction="outlaw" relation="-0.032" />
+            <relation faction="smuggler" relation="-0.06" />
+
+            <relation faction="scaleplate" relation="-0.32" />
+            <relation faction="argon" relation="-0.1" />
+            <relation faction="boron" relation="-1" />
+            <relation faction="xenon" relation="-1" />
+        </relations>
+    </replace>
+
+    <!-- Xenon (Unidentified Enemy) -->
+
+    <!-- Pirates -->
+    <replace sel="//factions/faction[@id='scaleplate']/@name">'Pirates'</replace>
+    <replace sel="//factions/faction[@id='scaleplate']/@description">'TODO'</replace>
+
+    <replace sel="//factions/faction[@id='scaleplate']/relations">
+        <relations locked="1">
+            <relation faction="smuggler" relation="-0.06" />
+            <relation faction="criminal" relation="-0.5" />
+            <relation faction="khaak" relation="-1" />
+            <relation faction="outlaw" relation="-0.032" />
+            <relation faction="player" relation="-0.0032" />
+
+            <relation faction="boron" relation="-0.32" />
+            <relation faction="split" relation="-0.32" />
+            <relation faction="argon" relation="-0.32" />
+            <relation faction="paranid" relation="-0.32" />
+            <relation faction="xenon" relation="-1" />
+        </relations>
+    </replace>
+
+    <!-- United Space Command (Terran) -->
+</diff>
