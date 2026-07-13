@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- NOTES:
+ - Setting a relation between factions as '1' (they are best buds) will change the behaviour of <location type="galaxy">. Despite setting a faction it will ignore it allow stations to be built in other faction's territories.
+ -->
 <!--
 TODO:
     - Rename scaleplate to 'pirates'
@@ -38,7 +41,7 @@ TODO:
             <relation faction="paranid" relation="-0.1" />
             <relation faction="split" relation="-0.1" />
             <relation faction="xenon" relation="-1" />
-            <relation faction="boron" relation="1" />
+            <relation faction="boron" relation="0.5" />
         </relations>
     </replace>
 
@@ -56,7 +59,7 @@ TODO:
             <relation faction="scaleplate" relation="-0.32" />
             <relation faction="split" relation="-1" />
             <relation faction="xenon" relation="-1" />
-            <relation faction="argon" relation="1" />
+            <relation faction="argon" relation="0.5" />
         </relations>
     </replace>
 
