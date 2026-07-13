@@ -8,7 +8,7 @@ TODO:
 -->
 <diff>
     <!-- Paranid Empire -->
-    <replace sel="//factions/faction[@id='paranid']/@name">'Paranid Empire'</replace>
+    <replace sel="//factions/faction[@id='paranid']/@name">Paranid Empire</replace>
     <replace sel="//factions/faction[@id='paranid']/@description">'TODO'</replace>
 
     <replace sel="//factions/faction[@id='paranid']/relations">
@@ -43,7 +43,7 @@ TODO:
     </replace>
 
     <!-- Kingdom of Boron -->
-    <replace sel="//factions/faction[@id='boron']/@name">'Kingdom of Boron'</replace>
+    <replace sel="//factions/faction[@id='boron']/@name">Kingdom of Boron</replace>
     <replace sel="//factions/faction[@id='boron']/@description">'TODO'</replace>
 
     <replace sel="//factions/faction[@id='boron']/relations">
@@ -76,7 +76,7 @@ TODO:
     </replace>
 
     <!-- Split Dynasty -->
-    <replace sel="//factions/faction[@id='split']/@name">'Split Dynasty'</replace>
+    <replace sel="//factions/faction[@id='split']/@name">Split Dynasty</replace>
     <replace sel="//factions/faction[@id='split']/@description">'TODO'</replace>
 
     <replace sel="//factions/faction[@id='split']/relations">
@@ -96,7 +96,7 @@ TODO:
     <!-- Xenon (Unidentified Enemy) -->
 
     <!-- Pirates -->
-    <replace sel="//factions/faction[@id='scaleplate']/@name">'Pirates'</replace>
+    <replace sel="//factions/faction[@id='scaleplate']/@name">Pirates</replace>
     <replace sel="//factions/faction[@id='scaleplate']/@description">'TODO'</replace>
 
     <replace sel="//factions/faction[@id='scaleplate']/relations">
