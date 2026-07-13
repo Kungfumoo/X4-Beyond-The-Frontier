@@ -57,7 +57,7 @@ TODO:
             <relation faction="smuggler" relation="-0.06" />
 
             <relation faction="scaleplate" relation="-0.32" />
-            <relation faction="split" relation="-1" />
+            <relation faction="split" relation="-0.32" />
             <relation faction="xenon" relation="-1" />
             <relation faction="argon" relation="0.5" />
         </relations>
@@ -92,7 +92,7 @@ TODO:
 
             <relation faction="scaleplate" relation="-0.32" />
             <relation faction="argon" relation="-0.1" />
-            <relation faction="boron" relation="-1" />
+            <relation faction="boron" relation="-0.32" />
             <relation faction="xenon" relation="-1" />
         </relations>
     </replace>
