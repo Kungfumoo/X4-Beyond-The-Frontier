@@ -63,6 +63,7 @@ TODO:
     <!-- Teladi Company -->
     <replace sel="//factions/faction[@id='teladi']/@description">'TODO'</replace>
     <replace sel="//factions/faction[@id='teladi']/@policefaction">teladi</replace>
+    <replace sel="//factions/faction[@id='teladi']/@tags">claimspace economic privateloadout privateship protective publicloadout publicship standard watchdoguser police</replace>
 
     <replace sel="//factions/faction[@id='teladi']/relations">
         <relations>
