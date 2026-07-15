@@ -18,6 +18,11 @@
                 <set_faction_active faction="faction.holyorderfanatic" active="false" />
                 <set_faction_active faction="faction.khaak" active="false" />
                 <set_faction_active faction="faction.ministry" active="false" />
+                <set_faction_active faction="faction.court" active="false" />
+                <set_faction_active faction="faction.ministry" active="false" />
+                <set_faction_active faction="faction.fallensplit" active="false" />
+                <set_faction_active faction="faction.freesplit" active="false" />
+                <set_faction_active faction="faction.kaori" active="false" />
                 <!-- TODO: dlc factions -->
             </actions>
         </cue>
