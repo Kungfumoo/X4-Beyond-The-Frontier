@@ -120,4 +120,13 @@ TODO:
     </replace>
 
     <!-- United Space Command (Terran) -->
+    <replace sel="//factions/faction[@id='terran']/@name">United Space Command</replace>
+    <replace sel="//factions/faction[@id='terran']/@description">'TODO'</replace>
+    <replace sel="//factions/faction[@id='terran']/@tags">hidden</replace>
+    <remove sel="//factions/faction[@id='terran']/@policefaction" />
+
+    <replace sel="//factions/faction[@id='terran']/relations">
+        <relations locked="1">
+        </relations>
+    </replace>
 </diff>

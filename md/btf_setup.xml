@@ -23,7 +23,9 @@
                 <set_faction_active faction="faction.fallensplit" active="false" />
                 <set_faction_active faction="faction.freesplit" active="false" />
                 <set_faction_active faction="faction.kaori" active="false" />
-                <!-- TODO: dlc factions -->
+                <set_faction_active faction="faction.pioneers" active="false" />
+                <set_faction_active faction="faction.terran" active="false" />
+                <set_faction_active faction="faction.yaki" active="false" />
             </actions>
         </cue>
     </cues>
