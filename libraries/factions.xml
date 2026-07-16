@@ -2,13 +2,6 @@
 <!-- NOTES:
  - Setting a relation between factions as '1' (they are best buds) will change the behaviour of <location type="galaxy">. Despite setting a faction it will ignore it allow stations to be built in other faction's territories.
  -->
-<!--
-TODO:
-    - Rename scaleplate to 'pirates'
-    - Ensure factions such as antigone, buccaneers etc are set to inactive which is done via cue then here
-    - Redo relations
-    - Ensure Terrans are hidden and are inactive as they are only relevant at the start
--->
 <diff>
     <!-- Paranid Empire -->
     <replace sel="//factions/faction[@id='paranid']/@name">Paranid Empire</replace>

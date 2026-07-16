@@ -28,5 +28,85 @@
                 <set_faction_active faction="faction.yaki" active="false" />
             </actions>
         </cue>
+
+        <!-- Stolen from timelines scenario -->
+        <!-- TODO: how to hook this into mission cue when relevant? -->
+        <cue name="SetupM0">
+            <conditions>
+                <event_game_started />
+            </conditions>
+            <actions>
+                <set_value name="$DebugChance" exact="100"/> <!-- TODO: What is this? -->
+                <find_sector name="$M0Sector" macro="macro.x1g_cluster55_sector001_macro" space="player.galaxy"/>
+
+                <!-- Place the target, then check for its existence -->
+                <create_ship name="$Target" capturable="false" macro="macro.ship_xen_xl_mothership_01_a_macro" sector="$M0Sector" commandeerable="false">
+                    <owner exact="faction.xenon" overridenpc="true"/>
+                    <pilot>
+                    <select faction="faction.xenon" tags="tag.fighterpilot"/>
+                    </pilot>
+                    <loadout flags="thrusters"/>
+                    <paint ware="ware.paintmod_0145"/>
+                </create_ship>
+
+                <!-- TODO: set up protection fleet?-->
+
+                <do_if value="not $Target.exists">
+                    <debug_text text="'Target does not exist'" filter="error"/>
+                    <set_value name="$HasError" exact="true"/>
+                </do_if>
+
+                <create_order id="'Patrol'" object="$Target" default="true">
+                    <param name="space" value="$M0Sector"/>
+                </create_order>
+
+                <set_value name="$weapons_all" exact="$Target.turrets.operational.list"/>
+                <do_all exact="$weapons_all.count" counter="$i">
+                    <set_weapon_mode weapon="$weapons_all.{$i}" weaponmode="weaponmode.attackenemies"/>
+                </do_all>
+
+                <!-- change setup once actual asset is available -->
+                <find_object_component groupname="$TurretComponents" object="$Target" macro="macro.turret_xen_l_plasma_01_mk1_macro" multiple="true"/>
+                <find_object_component groupname="$TargetGenerators" object="$Target" macro="macro.props_xen_generator_01_macro" multiple="true"/>
+
+                <create_group groupname="$DestroyComponents"/>
+                <add_to_group groupname="$DestroyComponents" group="$TurretComponents"/>
+                <add_to_group groupname="$DestroyComponents" group="$TargetGenerators"/>
+
+                <find_object_component groupname="$M0_ArmComponents" object="$Target" macro="macro.ship_xen_xl_mothership_01_part_06_macro" multiple="true"/>
+                <find_object_component name="$M0_HeatFlapComponent" object="$Target" macro="macro.ship_xen_xl_mothership_01_part_05_macro"/>
+                <find_object_component groupname="$M0_ArmTurrets" object="$Target" macro="macro.turret_xen_xl_battleship_01_mk1_macro" multiple="true"/>
+                <find_object_component name="$M0_HeatVentCore" object="$Target" macro="macro.ship_xen_xl_mothership_01_damagebody_01_macro"/>
+
+                <do_for_each name="$arm" in="$M0_ArmComponents">
+                    <run_actions ref="md.LIB_Generic.RequestObjectInvincibility">
+                    <param name="Object" value="$arm"/>
+                    <param name="RequesterCue" value="namespace"/>
+                    <param name="MinHull" value="100"/>
+                    <param name="DebugChance" value="$DebugChance"/>
+                    </run_actions>
+                </do_for_each>
+
+                <run_actions ref="md.LIB_Generic.RequestObjectInvincibility">
+                    <param name="Object" value="$Target"/>
+                    <param name="RequesterCue" value="namespace"/>
+                    <param name="MinHull" value="100"/>
+                    <param name="DebugChance" value="$DebugChance"/>
+                </run_actions>
+                <set_object_min_shield object="$Target" exact="100"/>
+
+                <run_actions ref="md.LIB_Generic.RequestObjectInvincibility">
+                    <param name="Object" value="$M0_HeatVentCore"/>
+                    <param name="RequesterCue" value="namespace"/>
+                    <param name="MinHull" value="100"/>
+                    <param name="DebugChance" value="$DebugChance"/>
+                </run_actions>
+
+                <do_if value="not @$M0_ArmComponents.count">
+                    <debug_text text="'Target has no engines or turrets'" filter="error"/>
+                    <set_value name="$HasError" exact="true"/>
+                </do_if>
+            </actions>
+        </cue>
     </cues>
 </mdscript>
