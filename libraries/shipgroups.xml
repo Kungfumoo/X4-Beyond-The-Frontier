@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff>
+    <!-- Ensure F is always chosen for heavy fighters -->
+    <replace sel="//groups/group[@name='xen_fighter_heavy_s']">
+        <group name="xen_fighter_heavy_s">
+            <select macro="ship_xen_s_heavyfighter_01_a_macro" weight="100"/>
+        </group>
+    </replace>
+</diff>

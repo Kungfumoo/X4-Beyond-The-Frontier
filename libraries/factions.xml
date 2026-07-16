@@ -90,7 +90,8 @@
         </relations>
     </replace>
 
-    <!-- Xenon (Unidentified Enemy) -->
+    <!-- Xenon -->
+    <!-- TODO: "Unknown Xenon Ship" as ship names? -->
 
     <!-- Pirates -->
     <replace sel="//factions/faction[@id='scaleplate']/@name">Pirates</replace>
