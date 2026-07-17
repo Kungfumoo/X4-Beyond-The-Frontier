@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff>
     <add sel="/soundlibrary">
+        <!-- Original music -->
         <sound id="music_xbtf_menu_main_music" description="Music for the main menu from xbtf" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\main-menu"/>
             <volume start="1.0"/>
@@ -149,10 +150,15 @@
         </sound>
     </add>
 
+    <!-- base game amendments -->
     <replace sel="/soundlibrary/sound[@id='player_death']">
         <sound id="player_death" description="XBTF Death Music" repeat="1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00013"/>
             <volume start="1.0" />
         </sound>
+    </replace>
+
+    <replace sel="/soundlibrary/sound[@id='x4_timelines_ost_01_stardust_requiem']/volume">
+        <volume start="0.7" /> <!-- Just too loud compared to other tracks -->
     </replace>
 </diff>
