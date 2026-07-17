@@ -4,10 +4,10 @@
  -->
 <diff>
     <!-- Paranid Empire -->
-    <replace sel="//factions/faction[@id='paranid']/@name">Paranid Empire</replace>
-    <replace sel="//factions/faction[@id='paranid']/@description">'TODO'</replace>
+    <replace sel="/factions/faction[@id='paranid']/@name">Paranid Empire</replace>
+    <replace sel="/factions/faction[@id='paranid']/@description">'TODO'</replace>
 
-    <replace sel="//factions/faction[@id='paranid']/relations">
+    <replace sel="/factions/faction[@id='paranid']/relations">
         <relations>
             <relation faction="criminal" relation="-0.5" />
             <relation faction="khaak" relation="-1" />
@@ -21,9 +21,9 @@
     </replace>
 
     <!-- Argon Federation -->
-    <replace sel="//factions/faction[@id='argon']/@description">'TODO'</replace>
+    <replace sel="/factions/faction[@id='argon']/@description">'TODO'</replace>
 
-    <replace sel="//factions/faction[@id='argon']/relations">
+    <replace sel="/factions/faction[@id='argon']/relations">
         <relations>
             <relation faction="criminal" relation="-0.5" />
             <relation faction="khaak" relation="-1" />
@@ -39,10 +39,10 @@
     </replace>
 
     <!-- Kingdom of Boron -->
-    <replace sel="//factions/faction[@id='boron']/@name">Kingdom of Boron</replace>
-    <replace sel="//factions/faction[@id='boron']/@description">'TODO'</replace>
+    <replace sel="/factions/faction[@id='boron']/@name">Kingdom of Boron</replace>
+    <replace sel="/factions/faction[@id='boron']/@description">'TODO'</replace>
 
-    <replace sel="//factions/faction[@id='boron']/relations">
+    <replace sel="/factions/faction[@id='boron']/relations">
         <relations>
             <relation faction="criminal" relation="-0.5" />
             <relation faction="khaak" relation="-1" />
@@ -57,11 +57,11 @@
     </replace>
 
     <!-- Teladi Company -->
-    <replace sel="//factions/faction[@id='teladi']/@description">'TODO'</replace>
-    <replace sel="//factions/faction[@id='teladi']/@policefaction">teladi</replace>
-    <replace sel="//factions/faction[@id='teladi']/@tags">claimspace economic privateloadout privateship protective publicloadout publicship standard watchdoguser police</replace>
+    <replace sel="/factions/faction[@id='teladi']/@description">'TODO'</replace>
+    <replace sel="/factions/faction[@id='teladi']/@policefaction">teladi</replace>
+    <replace sel="/factions/faction[@id='teladi']/@tags">claimspace economic privateloadout privateship protective publicloadout publicship standard watchdoguser police</replace>
 
-    <replace sel="//factions/faction[@id='teladi']/relations">
+    <replace sel="/factions/faction[@id='teladi']/relations">
         <relations>
             <relation faction="criminal" relation="-0.5" />
             <relation faction="khaak" relation="-1" />
@@ -73,10 +73,10 @@
     </replace>
 
     <!-- Split Dynasty -->
-    <replace sel="//factions/faction[@id='split']/@name">Split Dynasty</replace>
-    <replace sel="//factions/faction[@id='split']/@description">'TODO'</replace>
+    <replace sel="/factions/faction[@id='split']/@name">Split Dynasty</replace>
+    <replace sel="/factions/faction[@id='split']/@description">'TODO'</replace>
 
-    <replace sel="//factions/faction[@id='split']/relations">
+    <replace sel="/factions/faction[@id='split']/relations">
         <relations>
             <relation faction="criminal" relation="-0.5" />
             <relation faction="khaak" relation="-1" />
@@ -94,10 +94,10 @@
     <!-- TODO: "Unknown Xenon Ship" as ship names? -->
 
     <!-- Pirates -->
-    <replace sel="//factions/faction[@id='scaleplate']/@name">Pirates</replace>
-    <replace sel="//factions/faction[@id='scaleplate']/@description">'TODO'</replace>
+    <replace sel="/factions/faction[@id='scaleplate']/@name">Pirates</replace>
+    <replace sel="/factions/faction[@id='scaleplate']/@description">'TODO'</replace>
 
-    <replace sel="//factions/faction[@id='scaleplate']/relations">
+    <replace sel="/factions/faction[@id='scaleplate']/relations">
         <relations locked="1">
             <relation faction="smuggler" relation="-0.06" />
             <relation faction="criminal" relation="-0.5" />
@@ -114,12 +114,12 @@
     </replace>
 
     <!-- United Space Command (Terran) -->
-    <replace sel="//factions/faction[@id='terran']/@name">United Space Command</replace>
-    <replace sel="//factions/faction[@id='terran']/@description">'TODO'</replace>
-    <replace sel="//factions/faction[@id='terran']/@tags">hidden</replace>
-    <remove sel="//factions/faction[@id='terran']/@policefaction" />
+    <replace sel="/factions/faction[@id='terran']/@name">United Space Command</replace>
+    <replace sel="/factions/faction[@id='terran']/@description">'TODO'</replace>
+    <replace sel="/factions/faction[@id='terran']/@tags">hidden</replace>
+    <remove sel="/factions/faction[@id='terran']/@policefaction" />
 
-    <replace sel="//factions/faction[@id='terran']/relations">
+    <replace sel="/factions/faction[@id='terran']/relations">
         <relations locked="1">
         </relations>
     </replace>

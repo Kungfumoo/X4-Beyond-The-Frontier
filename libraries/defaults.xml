@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff>
-    <replace sel="//defaults/dataset[@class='galaxy']/properties/sounds/fightmusic">
+    <replace sel="/defaults/dataset[@class='galaxy']/properties/sounds/fightmusic">
         <fightmusic>
             <!-- TODO: what happens if 1 is small fight and 2 is big? -->
             <entry smallfight="music_xbtf_fight_1" bigfight="music_xbtf_fight_1" weight="1" />
