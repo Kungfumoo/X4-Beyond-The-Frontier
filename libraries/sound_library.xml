@@ -148,6 +148,337 @@
                 <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
             </effects>
         </sound>
+
+        <!-- system voices-->
+        <sound id="voice_entering_system" description="XBTF Entering System" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\entering_system"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_01" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_01"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_02" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_02"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_03" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_03"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_04" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_04"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_05" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_05"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_06" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_06"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_07" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_07"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_08" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_08"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_09" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_09"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_10" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_10"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_11" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_11"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_12" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_12"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_13" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_13"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_14" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_14"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_15" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_15"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_16" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_16"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_17" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_17"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_19" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_19"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_20" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_20"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_21" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_21"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_22" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_22"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_23" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_23"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_24" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_24"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_25" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_25"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_26" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_26"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_27" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_27"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_29" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_29"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_30" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_30"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_31" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_31"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_32" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_32"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_33" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_33"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_34" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_34"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_37" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_37"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_38" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_38"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_39" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_39"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_40" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_40"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_41" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_41"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_44" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_44"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_45" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_45"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_46" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_46"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_47" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_47"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_48" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_48"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_49" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_49"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_53" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_53"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_54" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_54"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
+        <sound id="voice_system_55" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\sector_55"/>
+            <effects>
+                <reverb room="sewer pipe" roomsize="10" drymix="5" density="90"/>
+            </effects>
+        </sound>
+
     </add>
 
     <!-- base game amendments -->

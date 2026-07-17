@@ -2,4 +2,111 @@
 <diff>
     <!-- Remove station greetings from managers to docked player -->
     <remove sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='OnDocked']/cues/cue[@name='DockGreeting']/actions" />
+
+    <!-- Load old entering system lines -->
+    <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='ChangedSpace']">
+        <cue name="ChangedSpace" instantiate="true" namespace="this">
+            <conditions>
+                <event_object_changed_sector object="player.entity" />
+                <check_value value="event.param != null" />
+                <set_value name="$lastchange" exact="player.age" comment="Stored in static cue!" />
+            </conditions>
+            <delay exact="2s"/>
+            <actions>
+                <do_if value="@md.$SuppressChangedSpace or not event.param.exists">
+                    <cancel_cue cue="this"/>
+                </do_if>
+                <do_else>
+                    <set_value name="$newsector" exact="event.param"/>
+                    <set_value name="$oldsector" exact="event.param2"/>
+                    <!-- TODO: Better way or better place to put this? new table per instance..-->
+                    <set_value name="$sectors" exact="table[
+                        {'$x1g_cluster16_sector001_macro'} = '01',
+                        {'$x1g_cluster17_sector001_macro'} = '02',
+                        {'$x1g_cluster18_sector001_macro'} = '03',
+                        {'$x1g_cluster19_sector001_macro'} = '04',
+                        {'$x1g_cluster40_sector001_macro'} = '05',
+                        {'$x1g_cluster49_sector001_macro'} = '06',
+                        {'$x1g_cluster57_sector001_macro'} = '07',
+                        {'$x1g_cluster09_sector001_macro'} = '08',
+                        {'$x1g_cluster10_sector001_macro'} = '09',
+                        {'$x1g_cluster11_sector001_macro'} = '10',
+                        {'$x1g_cluster20_sector001_macro'} = '11',
+                        {'$x1g_cluster41_sector001_macro'} = '12',
+                        {'$x1g_cluster50_sector001_macro'} = '13',
+                        {'$x1g_cluster58_sector001_macro'} = '14',
+                        {'$x1g_cluster08_sector001_macro'} = '15',
+                        {'$x1g_cluster04_sector001_macro'} = '16',
+                        {'$x1g_cluster02_sector001_macro'} = '17',
+                        {'$x1g_cluster21_sector001_macro'} = '19',
+                        {'$x1g_cluster42_sector001_macro'} = '20',
+                        {'$x1g_cluster51_sector001_macro'} = '21',
+                        {'$x1g_cluster59_sector001_macro'} = '22',
+                        {'$x1g_cluster64_sector001_macro'} = '23',
+                        {'$x1g_cluster06_sector001_macro'} = '24',
+                        {'$x1g_cluster01_sector001_macro'} = '25',
+                        {'$x1g_cluster03_sector001_macro'} = '26',
+                        {'$x1g_cluster52_sector001_macro'} = '29',
+                        {'$x1g_cluster60_sector001_macro'} = '30',
+                        {'$x1g_cluster65_sector001_macro'} = '31',
+                        {'$x1g_cluster07_sector001_macro'} = '32',
+                        {'$x1g_cluster05_sector001_macro'} = '33',
+                        {'$x1g_cluster14_sector001_macro'} = '34',
+                        {'$x1g_cluster53_sector001_macro'} = '37',
+                        {'$x1g_cluster61_sector001_macro'} = '38',
+                        {'$x1g_cluster12_sector001_macro'} = '39',
+                        {'$x1g_cluster13_sector001_macro'} = '40',
+                        {'$x1g_cluster15_sector001_macro'} = '41',
+                        {'$x1g_cluster54_sector001_macro'} = '44',
+                        {'$x1g_cluster62_sector001_macro'} = '45',
+                        {'$x1g_cluster36_sector001_macro'} = '46',
+                        {'$x1g_cluster32_sector001_macro'} = '47',
+                        {'$x1g_cluster29_sector001_macro'} = '48',
+                        {'$x1g_cluster25_sector001_macro'} = '49',
+                        {'$x1g_cluster33_sector001_macro'} = '53',
+                        {'$x1g_cluster30_sector001_macro'} = '54',
+                        {'$x1g_cluster26_sector001_macro'} = '55',
+                        {'$x1g_cluster22_sector001_macro'} = '27',
+                        {'$x1g_cluster23_sector001_macro'} = '27',
+                        {'$x1g_cluster24_sector001_macro'} = '27',
+                        {'$x1g_cluster43_sector001_macro'} = '27',
+                        {'$x1g_cluster44_sector001_macro'} = '27',
+                        {'$x1g_cluster45_sector001_macro'} = '27',
+                        {'$x1g_cluster46_sector001_macro'} = '27',
+                        {'$x1g_cluster55_sector001_macro'} = '27',
+                        {'$x1g_cluster63_sector001_macro'} = '27'
+                    ]"/>
+
+                    <!-- If $oldsector != null (i.e. we did not just fly through a superhighway), the clusters do not match and the system IDs do not match, then we have changed star systems -->
+                    <!-- Note: See identical logic in MissionManager, Gate::GetSpokenName() and UI (Helper.getDisplayableGateDestinationSpace()) -->
+                    <do_if value="$oldsector != null and $newsector.cluster != $oldsector.cluster and ($newsector.cluster.systemid == 0 or $newsector.cluster.systemid != $oldsector.cluster.systemid)">
+                        <!-- star system has changed -->
+                        <signal_cue_instantly cue="ChangedSpaceVoice" param="$sectors.{'$' + $newsector.macro.id}" />
+                    </do_if>
+                </do_else>
+            </actions>
+            <cues>
+                <cue name="ChangedSpaceCancel">
+                    <conditions>
+                        <event_object_changed_sector object="player.entity"/>
+                    </conditions>
+                    <actions>
+                        <cancel_cue cue="ChangedSpace"/>
+                    </actions>
+                </cue>
+                <cue name="ChangedSpaceVoice">
+                    <conditions>
+                        <event_cue_signalled />
+                    </conditions>
+                    <actions>
+                        <play_sound sound="'voice_entering_system'" type="ui" />
+                    </actions>
+                    <delay exact="1.5s"/>
+                    <actions>
+                        <play_sound sound="'voice_system_' + event.param" type="ui" />
+                    </actions>
+                </cue>
+            </cues>
+        </cue>
+    </replace>
 </diff>
