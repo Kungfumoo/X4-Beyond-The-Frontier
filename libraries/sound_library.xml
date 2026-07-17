@@ -74,6 +74,14 @@
             </effects>
         </sound>
 
+        <sound id="music_sector_00028" description="Music selection for 00028" repeat="-1" is3d="0" preload="0">
+            <sample start="extensions\x4_btf\music\legacy\00028"/>
+            <volume start="0.8"/>
+            <effects>
+                <fade in="1.66667" out="0.666667"/>
+            </effects>
+        </sound>
+
         <sound id="music_xbtf_fight_1" description="xbtf fight music track 1" repeat="-1" is3d="0" preload="0">
             <sample start="extensions\x4_btf\music\legacy\00030"/>
             <volume start="2.0"/>
