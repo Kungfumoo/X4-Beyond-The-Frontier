@@ -15,12 +15,14 @@
                     <pilot>
                         <select faction="faction.terran" tags="tag.fighterpilot"/>
                     </pilot>
+
                     <loadout ref="timelines_sandbox_ter_l" />
                     <paint ware="ware.paintmod_0006"/>
                     <safepos object="player.ship" x="260.3783" y="40.65823" z="600.8676" />
                     <rotation yaw="-179" />
                 </create_ship>
 
+                <set_object_name object="$Target" name="'Mission Command'" />
                 <set_known object="$Target" known="true"/>
                 <create_order id="'Wait'" object="$Target" default="true" />
 

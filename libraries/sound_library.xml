@@ -487,6 +487,10 @@
             </effects>
         </sound>
 
+        <!-- Mission Voices -->
+        <sound id="voice_mission_1" description="Mission Command Male 1" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\introm-1"/>
+        </sound>
     </add>
 
     <!-- base game amendments -->
