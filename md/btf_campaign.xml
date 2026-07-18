@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="BtfCampaign" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../x4source/md/md.xsd">
+    <cues>
+        <!-- module is the gamestart id, allows you to limit cues based on gamestart -->
+        <cue name="BtfIntro" module="x1g_galaxy_main_0">
+            <conditions>
+                <event_game_started />
+            </conditions>
+            <actions>
+                <find_sector name="$Sector" macro="macro.x1g_cluster00_sector001_macro" space="player.galaxy"/>
+
+                <!-- Setup Sapporo at start-->
+                <create_ship name="$Target" capturable="false" macro="macro.ship_ter_l_flagship_01_a_macro" sector="$Sector" commandeerable="false">
+                    <owner exact="faction.terran" overridenpc="true"/>
+                    <pilot>
+                        <select faction="faction.terran" tags="tag.fighterpilot"/>
+                    </pilot>
+                    <loadout ref="timelines_sandbox_ter_l" />
+                    <paint ware="ware.paintmod_0006"/>
+                    <safepos object="player.ship" x="260.3783" y="40.65823" z="600.8676" />
+                    <rotation yaw="-179" />
+                </create_ship>
+
+                <set_known object="$Target" known="true"/>
+                <create_order id="'Wait'" object="$Target" default="true" />
+
+                <!-- TODO: Start intro-->
+
+                <!-- TODO: flight school tutorial -->
+
+                <!-- TODO: Skip (shift-x) to start game to seizewell -->
+            </actions>
+        </cue>
+    </cues>
+</mdscript>
