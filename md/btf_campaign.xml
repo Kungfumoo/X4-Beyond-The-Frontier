@@ -26,12 +26,30 @@
                 <set_known object="$Target" known="true"/>
                 <create_order id="'Wait'" object="$Target" default="true" />
 
-                <!-- TODO: Start intro-->
+                <!-- TODO: Setup Mission -->
 
                 <!-- TODO: flight school tutorial -->
 
                 <!-- TODO: Skip (shift-x) to start game to seizewell -->
             </actions>
+            <delay exact="5s" />
+            <actions>
+                <!-- Start intro-->
+                <play_sound sound="'voice_mission_1'" type="ui" />
+                <signal_cue cue="EngineTest" />
+            </actions>
+            <cues>
+                <cue name="EngineTest">
+                    <conditions>
+                        <event_cue_signalled />
+                    </conditions>
+                    <delay exact="10s"/>
+                    <actions>
+                        <!-- TODO: Update mission step -->
+                        <show_help custom="'ENGINETEST'" />
+                    </actions>
+                </cue>
+            </cues>
         </cue>
     </cues>
 </mdscript>
