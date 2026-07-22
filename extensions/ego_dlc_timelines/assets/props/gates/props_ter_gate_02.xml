@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+    <replace sel="//component[@name='props_ter_gate_02']/source">
+      <source geometry="extensions\x4_btf\extensions\ego_dlc_timelines\assets\props\gates\props_ter_gate_02_data" />
+    </replace>
+
+    <add sel="//component[@name='props_ter_gate_02']/connections">
+      <connection name="destination" tags="gate " />
+      <connection name="Connection01" tags="gate " />
+    </add>
+</diff>
