@@ -27,6 +27,27 @@
                 <create_order id="'Wait'" object="$Target" default="true" />
 
                 <!-- TODO: Setup Mission -->
+                <create_mission
+                    cue="BtfIntro"
+                    type="missiontype.plot"
+                    name="'X-Prototype Tests'"
+                    description="'X prototype test plan'"
+                    difficulty="level.easy"
+                    faction="faction.terran"
+                    abortable="false"
+                >
+                    <briefing>
+                        <objective step="1" action="objective.custom" customaction="'Increase Throttle'"/>
+                        <objective step="2" action="objective.custom" customaction="'Decrease Throttle'"/>
+                    <!--
+                        <objective step="3" action="objective.deploy"       text="{30179,6022}"          comment="deploy probe"/>
+                        <objective step="4" action="objective.investigate"  text="{30179,6022}"          comment="select probe"/>
+                        <objective step="5" action="objective.investigate"  text="{30179,6023}"          comment="investigate asteroids"/>
+                        <objective step="6" action="objective.activate"     text="{30179,6024}"          comment="Activate mining equipment"/>
+                        <objective step="7" action="objective.wait"         text="{30179,6025}"          comment="Observe mining operation"/>
+                    -->
+                    </briefing>
+                </create_mission>
 
                 <!-- TODO: flight school tutorial -->
 
@@ -36,17 +57,52 @@
             <actions>
                 <!-- Start intro-->
                 <play_sound sound="'voice_mission_1'" type="ui" />
-                <signal_cue cue="EngineTest" />
+                <signal_cue cue="BtfIntro_AccelerateTest" />
             </actions>
             <cues>
-                <cue name="EngineTest">
+                <cue name="BtfIntro_AccelerateTest">
                     <conditions>
                         <event_cue_signalled />
                     </conditions>
-                    <delay exact="10s"/>
+                    <delay exact="10s" />
                     <actions>
-                        <!-- TODO: Update mission step -->
-                        <show_help custom="'ENGINETEST'" />
+                        <play_sound sound="'voice_mission_2'" type="ui" />
+                        <show_help custom="'You can use the mouse wheel or the X button to accelerate'" position="1" force="true" />
+                    </actions>
+                    <delay exact="27s" />
+                    <actions>
+                        <set_objective_from_briefing cue="BtfIntro" step="1"/>
+                        <signal_cue cue="BtfIntro_AccelerateTest_Player_Accelerate" />
+                    </actions>
+                    <cues>
+                        <cue name="BtfIntro_AccelerateTest_Player_Accelerate">
+                            <conditions>
+                                <event_cue_signalled />
+                            </conditions>
+                            <cues>
+                                <cue name="BtfIntro_AccelerateTest_Player_Accelerate_Check" checkinterval="0.5s">
+                                    <conditions>
+                                        <check_value value="player.input.flight.throttle == 1"/>
+                                    </conditions>
+                                    <actions>
+                                        <show_help custom="'IT WORKED'" />
+                                        <signal_cue cue="BtfIntro_DecelerateTest" />
+                                    </actions>
+                                </cue>
+                            </cues>
+                        </cue>
+                    </cues>
+                </cue>
+                <cue name="BtfIntro_DecelerateTest">
+                    <conditions>
+                        <event_cue_signalled />
+                        <cue_is_complete cue="BtfIntro_AccelerateTest" />
+                    </conditions>
+                    <delay exact="2s" />
+                    <actions>
+                        <show_help custom="'NEXT TEST'" />
+                        <set_objective_from_briefing cue="BtfIntro" step="2"/>
+                        <set_playership_throttle value="0" />
                     </actions>
                 </cue>
             </cues>
