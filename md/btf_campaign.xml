@@ -37,8 +37,11 @@
                     abortable="false"
                 >
                     <briefing>
-                        <objective step="1" action="objective.custom" customaction="'Increase Throttle'"/>
-                        <objective step="2" action="objective.custom" customaction="'Decrease Throttle'"/>
+                        <objective step="1" action="objective.wait" text="'Await orders'" />
+                        <objective step="2" action="objective.custom" customaction="'Increase Throttle'"/>
+                        <objective step="3" action="objective.wait" text="'Await orders'" />
+                        <objective step="4" action="objective.custom" customaction="'Decrease Throttle'"/>
+                        <objective step="5" action="objective.wait" text="'Play around with controls and await orders'" />
                     <!--
                         <objective step="3" action="objective.deploy"       text="{30179,6022}"          comment="deploy probe"/>
                         <objective step="4" action="objective.investigate"  text="{30179,6022}"          comment="select probe"/>
@@ -57,6 +60,7 @@
             <actions>
                 <!-- Start intro-->
                 <play_sound sound="'voice_mission_1'" type="ui" />
+                <set_objective_from_briefing cue="BtfIntro" step="1"/>
                 <signal_cue cue="BtfIntro_AccelerateTest" />
             </actions>
             <cues>
@@ -64,14 +68,18 @@
                     <conditions>
                         <event_cue_signalled />
                     </conditions>
-                    <delay exact="10s" />
+                    <delay exact="18s" />
                     <actions>
                         <play_sound sound="'voice_mission_2'" type="ui" />
-                        <show_help custom="'You can use the mouse wheel or the X button to accelerate'" position="1" force="true" />
+                        <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
+                            <text line="26416" comment="Use the mouse wheel or press $INPUT_STATE_ACCELERATE$ to accelerate."/>
+                            <!-- <text line="" comment="Shift-X to skip tutorial."/> -->
+                        </show_help_multi>
                     </actions>
                     <delay exact="27s" />
                     <actions>
-                        <set_objective_from_briefing cue="BtfIntro" step="1"/>
+                        <remove_help all="true" />
+                        <set_objective_from_briefing cue="BtfIntro" step="2"/>
                         <signal_cue cue="BtfIntro_AccelerateTest_Player_Accelerate" />
                     </actions>
                     <cues>
@@ -99,12 +107,18 @@
                     </conditions>
                     <delay exact="2s" />
                     <actions>
+                        <set_objective_from_briefing cue="BtfIntro" step="3"/>
                         <play_sound sound="'voice_mission_3'" type="ui" />
                         <set_playership_throttle value="0" />
+                        <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
+                            <text line="26418" comment="Use the mouse wheel or press $INPUT_STATE_DECELERATE$ to decelerate."/>
+                            <!-- <text line="" comment="Shift-X to skip tutorial."/> -->
+                        </show_help_multi>
                     </actions>
                     <delay exact="16s" />
                     <actions>
-                        <set_objective_from_briefing cue="BtfIntro" step="2"/>
+                        <remove_help all="true" />
+                        <set_objective_from_briefing cue="BtfIntro" step="4"/>
                         <signal_cue cue="BtfIntro_DecelerateTest_Player_Decelerate" />
                     </actions>
                     <cues>
@@ -118,12 +132,24 @@
                                         <check_value value="player.input.flight.throttle lt 0"/>
                                     </conditions>
                                     <actions>
-                                        <show_help custom="'IT WORKED'"/>
+                                        <signal_cue cue="BtfIntro_MovementFreeTest" />
                                     </actions>
                                 </cue>
                             </cues>
                         </cue>
                     </cues>
+                </cue>
+                <cue name="BtfIntro_MovementFreeTest">
+                    <conditions>
+                        <event_cue_signalled />
+                        <cue_is_complete cue="BtfIntro_DecelerateTest" />
+                    </conditions>
+                    <delay exact="2s" />
+                    <actions>
+                        <set_playership_throttle value="0" />
+                        <play_sound sound="'voice_mission_4'" type="ui" />
+                        <!-- TODO: split above up and play the multi-text and set objective at the midway point -->
+                    </actions>
                 </cue>
             </cues>
         </cue>
