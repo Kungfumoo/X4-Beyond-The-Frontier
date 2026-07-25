@@ -85,7 +85,6 @@
                                         <check_value value="player.input.flight.throttle == 1"/>
                                     </conditions>
                                     <actions>
-                                        <show_help custom="'IT WORKED'" />
                                         <signal_cue cue="BtfIntro_DecelerateTest" />
                                     </actions>
                                 </cue>
@@ -100,10 +99,31 @@
                     </conditions>
                     <delay exact="2s" />
                     <actions>
-                        <show_help custom="'NEXT TEST'" />
-                        <set_objective_from_briefing cue="BtfIntro" step="2"/>
+                        <play_sound sound="'voice_mission_3'" type="ui" />
                         <set_playership_throttle value="0" />
                     </actions>
+                    <delay exact="16s" />
+                    <actions>
+                        <set_objective_from_briefing cue="BtfIntro" step="2"/>
+                        <signal_cue cue="BtfIntro_DecelerateTest_Player_Decelerate" />
+                    </actions>
+                    <cues>
+                        <cue name="BtfIntro_DecelerateTest_Player_Decelerate">
+                            <conditions>
+                                <event_cue_signalled />
+                            </conditions>
+                            <cues>
+                                <cue name="BtfIntro_DecelerateTest_Player_Decelerate_Check" checkinterval="0.5s">
+                                    <conditions>
+                                        <check_value value="player.input.flight.throttle lt 0"/>
+                                    </conditions>
+                                    <actions>
+                                        <show_help custom="'IT WORKED'"/>
+                                    </actions>
+                                </cue>
+                            </cues>
+                        </cue>
+                    </cues>
                 </cue>
             </cues>
         </cue>
