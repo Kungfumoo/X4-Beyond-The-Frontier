@@ -509,6 +509,10 @@
         <sound id="voice_mission_4" description="Mission Command Male 4" repeat="1" is3d="1" preload="0">
             <sample start="extensions\x4_btf\voice\introm-4"/>
         </sound>
+
+        <sound id="voice_mission_5" description="Mission Command Male 5" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\introm-5"/>
+        </sound>
     </add>
 
     <!-- base game amendments -->

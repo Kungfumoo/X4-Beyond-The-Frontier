@@ -148,7 +148,18 @@
                     <actions>
                         <set_playership_throttle value="0" />
                         <play_sound sound="'voice_mission_4'" type="ui" />
-                        <!-- TODO: split above up and play the multi-text and set objective at the midway point -->
+                    </actions>
+                    <delay exact="15s" />
+                    <actions>
+                        <play_sound sound="'voice_mission_5'" type="ui" />
+                        <set_objective_from_briefing cue="BtfIntro" step="5"/>
+                        <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
+                            <text line="26404" comment="$INPUT_STATE_TOGGLEMOUSESTEERING$\' to enable MOUSE STEERING until you release it."/>
+                            <text line="26413" comment="Use $INPUT_STATE_STRAFE_LEFT$, $INPUT_STATE_STRAFE_RIGHT$, $INPUT_STATE_STRAFE_UP$ and $INPUT_STATE_STRAFE_DOWN$ to strafe."/>
+                            <text line="26411" comment="Use $INPUT_STATE_ROLL_LEFT$ and $INPUT_STATE_ROLL_RIGHT$ to roll your ship."/>
+                            <text line="26419" comment="Press $INPUT_ACTION_STOP$ to come to a full stop."/>
+                            <!-- <text line="" comment="Shift-X to skip tutorial."/> -->
+                        </show_help_multi>
                     </actions>
                 </cue>
             </cues>
