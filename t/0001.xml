@@ -2,7 +2,7 @@
 <diff>
     <add sel="/language">
         <page id="19530001" title="XBTF Campaign" descr="Story Voice Lines" voice="yes">
-            <t id="1">All systems are go, comms? They are online loud and clear. Medic? Vital signs are good and normal. Acknowledged. All stations stand by for prototype test procedures. Ok, X-Pilot lets do this standard procedures from the top.</t>
+            <t id="1">All systems are go! Comms? They are online loud and clear. Medic? Vital signs are good and normal. Acknowledged. All stations stand by for prototype test procedures. Ok, X-Pilot lets do the standard procedures from the top.</t>
             <t id="2">First, the basic acceleration/decele  ration run to gauge the engine propulsion capacity. Initiate acceleration by pressing the accelerator button or use the throttle control in your controller. Do not attempt to touch any other controls in your accelerator. In order to conclude the test, you need to accelerate to maximum velocity. Ready? Count down to acceleration. 3, 2, 1, accelerate.</t>
             <t id="3">Nice work, Pilot. We have our readings, and we can proceed to the next step.Commence deceleration by pressing your deceleration button or use the throttle control in your controller.Count down to deceleration.3, 2, 1, decelerate.</t>
             <t id="4">Well done pilot. That concludes Phase 1 of our test procedures.The next test is basic maneuvering and navigation.It's designed to make the pilot feel comfortable with the steering and to obtain physical feedback of the usability of the control design.</t>
