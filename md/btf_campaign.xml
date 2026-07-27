@@ -10,7 +10,7 @@
                 <find_sector name="$Sector" macro="macro.x1g_cluster00_sector001_macro" space="player.galaxy"/>
 
                 <!-- Setup Sapporo at start-->
-                <create_ship name="$Target" capturable="false" macro="macro.ship_ter_l_flagship_01_a_macro" sector="$Sector" commandeerable="false">
+                <create_ship name="$CommandShip" capturable="false" macro="macro.ship_ter_l_flagship_01_a_macro" sector="$Sector" commandeerable="false">
                     <owner exact="faction.terran" overridenpc="true"/>
                     <pilot>
                         <select faction="faction.terran" tags="tag.fighterpilot"/>
@@ -22,9 +22,9 @@
                     <rotation yaw="-179" />
                 </create_ship>
 
-                <set_object_name object="$Target" name="'Mission Command'" />
-                <set_known object="$Target" known="true"/>
-                <create_order id="'Wait'" object="$Target" default="true" />
+                <set_object_name object="$CommandShip" name="'Mission Command'" />
+                <set_known object="$CommandShip" known="true"/>
+                <create_order id="'Wait'" object="$CommandShip" default="true" />
 
                 <!-- TODO: Setup Mission -->
                 <create_mission
@@ -59,7 +59,7 @@
             <delay exact="5s" />
             <actions>
                 <!-- Start intro-->
-                <play_sound sound="'voice_mission_1'" type="ui" />
+                <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="1" priority="90" />
                 <set_objective_from_briefing cue="BtfIntro" step="1"/>
                 <signal_cue cue="BtfIntro_AccelerateTest" />
             </actions>
@@ -68,15 +68,15 @@
                     <conditions>
                         <event_cue_signalled />
                     </conditions>
-                    <delay exact="18s" />
+                    <delay exact="19s" />
                     <actions>
-                        <play_sound sound="'voice_mission_2'" type="ui" />
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="2" priority="90" />
                         <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
                             <text line="26416" comment="Use the mouse wheel or press $INPUT_STATE_ACCELERATE$ to accelerate."/>
                             <!-- <text line="" comment="Shift-X to skip tutorial."/> -->
                         </show_help_multi>
                     </actions>
-                    <delay exact="27s" />
+                    <delay exact="28s" />
                     <actions>
                         <remove_help all="true" />
                         <set_objective_from_briefing cue="BtfIntro" step="2"/>
@@ -105,17 +105,17 @@
                         <event_cue_signalled />
                         <cue_is_complete cue="BtfIntro_AccelerateTest" />
                     </conditions>
-                    <delay exact="2s" />
+                    <delay exact="3s" />
                     <actions>
                         <set_objective_from_briefing cue="BtfIntro" step="3"/>
-                        <play_sound sound="'voice_mission_3'" type="ui" />
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="3" priority="90" />
                         <set_playership_throttle value="0" />
                         <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
                             <text line="26418" comment="Use the mouse wheel or press $INPUT_STATE_DECELERATE$ to decelerate."/>
                             <!-- <text line="" comment="Shift-X to skip tutorial."/> -->
                         </show_help_multi>
                     </actions>
-                    <delay exact="16s" />
+                    <delay exact="17s" />
                     <actions>
                         <remove_help all="true" />
                         <set_objective_from_briefing cue="BtfIntro" step="4"/>
@@ -144,14 +144,14 @@
                         <event_cue_signalled />
                         <cue_is_complete cue="BtfIntro_DecelerateTest" />
                     </conditions>
-                    <delay exact="2s" />
+                    <delay exact="3s" />
                     <actions>
                         <set_playership_throttle value="0" />
-                        <play_sound sound="'voice_mission_4'" type="ui" />
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="4" priority="90" />
                     </actions>
-                    <delay exact="15s" />
+                    <delay exact="16s" />
                     <actions>
-                        <play_sound sound="'voice_mission_5'" type="ui" />
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="5" priority="90" />
                         <set_objective_from_briefing cue="BtfIntro" step="5"/>
                         <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
                             <text line="26404" comment="$INPUT_STATE_TOGGLEMOUSESTEERING$\' to enable MOUSE STEERING until you release it."/>
