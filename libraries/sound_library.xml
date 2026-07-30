@@ -491,6 +491,10 @@
         <sound id="19530001_comm" description="XBTF Story Voicelines" repeat="1" is3d="1" preload="0">
             <sample start="extensions\x4_btf\voice\19530001\comm"/>
         </sound>
+
+        <sound id="intro_chatter" description="XBTF System voice" repeat="1" is3d="1" preload="0">
+            <sample start="extensions\x4_btf\voice\introchatter"/>
+        </sound>
     </add>
 
     <!-- base game amendments -->
@@ -514,7 +518,7 @@
     <replace sel="//sound[@id='weapon_ter_s_laser_02_mk1_muzzle']">
         <sound id="weapon_ter_s_laser_02_mk1_muzzle" description="S Old terran Electro-Magnetic Gun" repeat="1" is3d="1" preload="0">
             <sample start="extensions\x4_btf\sfx\weapons\pac"/>
-            <volume start="1.0" />
+            <volume start="0.5" />
             <effects>
                 <fade in="0" out="0" />
             </effects>

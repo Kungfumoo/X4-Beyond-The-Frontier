@@ -26,6 +26,11 @@
                 <set_known object="$CommandShip" known="true"/>
                 <create_order id="'Wait'" object="$CommandShip" default="true" />
 
+                <run_actions ref="md.LIB_Generic.RequestObjectInvincibility">
+                    <param name="Object" value="$CommandShip"/>
+                    <param name="RequesterCue" value="namespace"/>
+                </run_actions>
+
                 <!-- TODO: Setup Mission -->
                 <create_mission
                     cue="BtfIntro"
@@ -42,6 +47,7 @@
                         <objective step="3" action="objective.wait" text="'Await orders'" />
                         <objective step="4" action="objective.custom" customaction="'Decrease Throttle'"/>
                         <objective step="5" action="objective.wait" text="'Play around with controls and await orders'" />
+                        <objective step="6" action="objective.flyto" text="'Fly to starting ring'" />
                     <!--
                         <objective step="3" action="objective.deploy"       text="{30179,6022}"          comment="deploy probe"/>
                         <objective step="4" action="objective.investigate"  text="{30179,6022}"          comment="select probe"/>
@@ -161,6 +167,49 @@
                             <!-- <text line="" comment="Shift-X to skip tutorial."/> -->
                         </show_help_multi>
                     </actions>
+                    <delay exact="26s" />
+                    <actions>
+                        <play_sound sound="'intro_chatter'" type="ui" />
+                    </actions>
+                    <delay exact="60s" />
+                    <actions>
+                        <signal_cue cue="BtfIntro_RingTest" />
+                    </actions>
+                </cue>
+                <cue name="BtfIntro_RingTest">
+                    <conditions>
+                        <event_cue_signalled />
+                        <cue_is_complete cue="BtfIntro_MovementFreeTest" />
+                    </conditions>
+                    <delay exact="3s" />
+                    <actions>
+                        <set_value name="$Rings" exact="[]" />
+                        <signal_cue_instantly cue="BtfIntro_RingTest_Spawn" />
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="6" priority="90" />
+                        <set_objective cue="BtfIntro" step="6" action="objective.flyto" object="$Rings.{1}" />
+                    </actions>
+                    <cues>
+                        <cue name="BtfIntro_RingTest_Spawn">
+                            <conditions>
+                                <event_cue_signalled />
+                            </conditions>
+                            <actions>
+                                <!-- TODO: curate positions by making a list of vectors, then just load the vector per ring -->
+                                <do_all exact="5" counter="$i">
+                                    <set_value name="$mod" exact="$i - 1" />
+                                    <create_object name="$Ring" macro="macro.triggerobject_race_checkpoint_01_macro" owner="faction.ownerless" sector="$Sector" spinning="0">
+                                        <safepos object="$CommandShip" x="0" y="40.65823 + (200 * $mod)" z="3000.8676 + (1000 * $mod)" />
+                                        <rotation yaw="0deg" pitch="0deg + (-10deg * $mod)" roll="0deg"/>
+                                    </create_object>
+                                    <run_actions ref="md.LIB_Generic.RequestObjectInvincibility">
+                                        <param name="Object" value="$Ring"/>
+                                        <param name="RequesterCue" value="namespace"/>
+                                    </run_actions>
+                                    <append_to_list name="$Rings" exact="$Ring"/>
+                                </do_all>
+                            </actions>
+                        </cue>
+                    </cues>
                 </cue>
             </cues>
         </cue>
