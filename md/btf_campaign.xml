@@ -20,7 +20,7 @@
                     <loadout ref="timelines_sandbox_ter_l" />
                     <paint ware="ware.paintmod_0006"/>
                     <safepos object="player.ship" x="260.3783" y="40.65823" z="600.8676" />
-                    <rotation yaw="-179" /> <!-- TODO: should this be in deg? error ingame -->
+                    <rotation yaw="-179deg" />
                 </create_ship>
 
                 <set_object_name object="$CommandShip" name="'Mission Command'" />
