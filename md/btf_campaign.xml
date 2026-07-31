@@ -8,6 +8,7 @@
             </conditions>
             <actions>
                 <find_sector name="$Sector" macro="macro.x1g_cluster00_sector001_macro" space="player.galaxy"/>
+                <find_sector name="$JumpTarget" macro="macro.x1g_cluster50_sector001_macro" space="player.galaxy"/>
 
                 <!-- Setup Sapporo at start-->
                 <create_ship name="$CommandShip" capturable="false" macro="macro.ship_ter_l_flagship_01_a_macro" sector="$Sector" commandeerable="false">
@@ -19,7 +20,7 @@
                     <loadout ref="timelines_sandbox_ter_l" />
                     <paint ware="ware.paintmod_0006"/>
                     <safepos object="player.ship" x="260.3783" y="40.65823" z="600.8676" />
-                    <rotation yaw="-179" />
+                    <rotation yaw="-179" /> <!-- TODO: should this be in deg? error ingame -->
                 </create_ship>
 
                 <set_object_name object="$CommandShip" name="'Mission Command'" />
@@ -70,6 +71,44 @@
                 <signal_cue cue="BtfIntro_AccelerateTest" />
             </actions>
             <cues>
+                <cue name="BtfIntro_CommandShip_Conversation" instantiate="true">
+                    <conditions>
+                        <event_conversation_started actor="$CommandShip.pilot"/>
+                    </conditions>
+                    <actions>
+                        <add_player_choice highlighted="true" text="'Skip Tutorial'" section="skipper_xbtf_tutorial" position="top_left" />
+                    </actions>
+                    <cues>
+                        <cue name="BtfIntro_CommandShip_Conversation_Skip">
+                            <conditions>
+                                <event_conversation_next_section actor="$CommandShip.pilot" section="skipper_xbtf_tutorial" />
+                            </conditions>
+                            <actions>
+                                <signal_cue cue="BtfIntro_Jump" />
+                            </actions>
+                        </cue>
+                    </cues>
+                </cue>
+                <cue name="BtfIntro_Jump">
+                    <conditions>
+                        <event_cue_signalled />
+                    </conditions>
+                    <actions>
+                        <show_help custom="'JUMP SEQUENCE'"/>
+                        <!--
+                        TODO: Jump sequence:
+                            - jump sequence/cutscene
+                            - hide earth sector
+                            - reset ship configuration
+                            - boom boom cutscene
+                        -->
+                        <warp object="player.ship" sector="$JumpTarget">
+                            <safepos value="position.[0,0,10km]" radius="2km"/>
+                        </warp>
+                        <remove_mission cue="BtfIntro" />
+                        <cancel_cue cue="BtfIntro" />
+                    </actions>
+                </cue>
                 <cue name="BtfIntro_AccelerateTest">
                     <conditions>
                         <event_cue_signalled />
