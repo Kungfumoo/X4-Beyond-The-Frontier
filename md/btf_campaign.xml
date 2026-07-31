@@ -233,19 +233,27 @@
                                 <event_cue_signalled />
                             </conditions>
                             <actions>
-                                <!-- TODO: curate positions by making a list of vectors, then just load the vector per ring -->
-                                <do_all exact="5" counter="$i">
-                                    <set_value name="$mod" exact="$i - 1" />
+                                <set_value name="$ringLocations" exact="[
+                                    table[$x = 0, $y = 40.65, $z = 3000.86, $yaw = 0deg, $pitch = 180deg, $roll = deg],
+                                    table[$x = -300, $y = 40.65, $z = 4000.86, $yaw = -30deg, $pitch = 180deg, $roll = 0deg],
+                                    table[$x = -1200, $y = 40.65, $z = 5000.86, $yaw = -60deg, $pitch = 180deg, $roll = 0deg],
+                                    table[$x = -2100, $y = 40.65, $z = 5300.86, $yaw = -90deg, $pitch = 180deg, $roll = 0deg],
+                                    table[$x = -3100, $y = 340.65, $z = 5300.86, $yaw = -90deg, $pitch = 150deg, $roll = 0deg],
+                                    table[$x = -4100, $y = 1240.65, $z = 5300.86, $yaw = -90deg, $pitch = 120deg, $roll = 0deg],
+                                    table[$x = -4400, $y = 2140.65, $z = 5300.86, $yaw = -90deg, $pitch = 90deg, $roll = 0deg]
+                                ]" />
+
+                                <do_for_each name="$ringPos" in="$ringLocations">
                                     <create_object name="$Ring" macro="macro.triggerobject_race_checkpoint_01_macro" owner="faction.ownerless" sector="$Sector" spinning="0">
-                                        <safepos object="$CommandShip" x="0" y="40.65823 + (200 * $mod)" z="3000.8676 + (1000 * $mod)" />
-                                        <rotation yaw="0deg" pitch="0deg + (-10deg * $mod)" roll="0deg"/>
+                                        <safepos object="$CommandShip" x="$ringPos.{'$x'}" y="$ringPos.{'$y'}" z="$ringPos.{'$z'}" />
+                                        <rotation yaw="$ringPos.{'$yaw'}" pitch="$ringPos.{'$pitch'}" roll="$ringPos.{'$roll'}"/>
                                     </create_object>
                                     <run_actions ref="md.LIB_Generic.RequestObjectInvincibility">
                                         <param name="Object" value="$Ring"/>
                                         <param name="RequesterCue" value="namespace"/>
                                     </run_actions>
                                     <append_to_list name="$Rings" exact="$Ring"/>
-                                </do_all>
+                                </do_for_each>
                             </actions>
                         </cue>
                     </cues>
