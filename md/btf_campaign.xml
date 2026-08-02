@@ -104,6 +104,7 @@
                             - hide earth sector
                             - reset ship configuration
                             - boom boom cutscene
+                            - complete mission rather then hide it?
                         -->
                         <warp object="player.ship" sector="$JumpTarget">
                             <safepos value="position.[0,0,10km]" radius="2km"/>
@@ -319,12 +320,44 @@
                                         <event_cue_signalled />
                                     </conditions>
                                     <actions>
-                                        <show_help custom="'FINISH'" />
                                         <set_objective_from_briefing cue="BtfIntro" step="9" />
+                                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="8" priority="90" />
+                                    </actions>
+                                    <delay exact="7s" />
+                                    <actions>
+                                        <do_for_each name="$Ring" in="$Rings">
+                                            <destroy_object object="$Ring" />
+                                        </do_for_each>
+                                        <signal_cue cue="BtfIntro_TargetDroneTest" />
                                     </actions>
                                 </cue>
                             </cues>
                         </cue>
+                    </cues>
+                </cue>
+                <cue name="BtfIntro_TargetDroneTest">
+                    <conditions>
+                        <event_cue_signalled />
+                        <cue_is_complete cue="BtfIntro_RingTest" />
+                    </conditions>
+                    <actions>
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="9" priority="90" />
+                        <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
+                            <text line="27001" comment="Point towards the nearby ship then press $INPUT_ACTION_TARGET_NEXT_TARGET$ to make it your target." />
+                            <text line="27002" comment="Click on the nearby ship to make it your target." />
+                            <!-- <text line="27003" comment="Press $INPUT_ACTION_TARGET_NEXT_ENEMY$ to target the closest hostile." /> -->
+                            <text line="27004" comment="Press $INPUT_ACTION_NEXT_TARGET_ACTION$ and $INPUT_ACTION_PREV_TARGET_ACTION$ to cycle through targets." />
+                            <!-- <text line="27005" comment="Press $INPUT_ACTION_TARGET_NEXT_ENEMY$ to target the closest hostile. This also locks the target." /> -->
+                            <text line="27006" comment="Press $INPUT_ACTION_NEXT_TARGET_ACTION$ to cycle through targets." />
+                        </show_help_multi>
+                    </actions>
+                    <delay exact="38s"/>
+                    <actions>
+                        <show_help custom="'SPAWN DRONES'" />
+                    </actions>
+                    <cues>
+                        <!-- TODO: spawn drones-->
+                        <!-- TODO: target drone test -->
                     </cues>
                 </cue>
             </cues>
