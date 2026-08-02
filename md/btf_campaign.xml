@@ -290,7 +290,6 @@
                             </conditions>
                             <actions>
                                 <set_value name="$ringCounter" exact="1" />
-                                <signal_cue cue="BtfIntro_RingTest_Run_RingObjective" />
                             </actions>
                             <cues>
                                 <cue name="BtfIntro_RingTest_Run_RingObjective">
@@ -308,7 +307,7 @@
                                                     <signal_cue cue="BtfIntro_RingTest_Run_Finish" />
                                                 </do_if>
                                                 <do_else>
-                                                    <signal_cue cue="BtfIntro_RingTest_Run_RingObjective" />
+                                                    <reset_cue cue="BtfIntro_RingTest_Run_RingObjective" />
                                                 </do_else>
                                             </actions>
                                         </cue>
