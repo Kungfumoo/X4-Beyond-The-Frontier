@@ -50,6 +50,7 @@
                         <objective step="5" action="objective.wait" text="'Play around with controls and await orders'" />
                         <objective step="6" action="objective.flyto" text="'Fly to starting ring'" />
                         <objective step="7" action="objective.wait" text="'Await orders'" />
+                        <objective step="8" action="objective.flyto" text="'Fly through rings'" />
                     <!--
                         <objective step="3" action="objective.deploy"       text="{30179,6022}"          comment="deploy probe"/>
                         <objective step="4" action="objective.investigate"  text="{30179,6022}"          comment="select probe"/>
@@ -238,6 +239,7 @@
                                 <event_cue_signalled />
                             </conditions>
                             <actions>
+                                <!-- TODO: expand with more rings -->
                                 <set_value name="$ringLocations" exact="[
                                     table[$x = 0, $y = 40.65, $z = 3000.86, $yaw = 0deg, $pitch = 180deg, $roll = 0deg],
                                     table[$x = -300, $y = 40.65, $z = 4000.86, $yaw = -30deg, $pitch = 180deg, $roll = 0deg],
@@ -272,7 +274,52 @@
                                     </conditions>
                                     <actions>
                                         <set_objective_from_briefing cue="BtfIntro" step="7" />
+                                        <set_playership_throttle value="0" />
                                         <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="7" priority="90" />
+                                    </actions>
+                                    <delay exact="60s"/>
+                                    <actions>
+                                        <signal_cue cue="BtfIntro_RingTest_Run" />
+                                    </actions>
+                                </cue>
+                            </cues>
+                        </cue>
+                        <cue name="BtfIntro_RingTest_Run">
+                            <conditions>
+                                <event_cue_signalled />
+                            </conditions>
+                            <actions>
+                                <set_value name="$ringCounter" exact="1" />
+                                <signal_cue cue="BtfIntro_RingTest_Run_RingObjective" />
+                            </actions>
+                            <cues>
+                                <cue name="BtfIntro_RingTest_Run_RingObjective">
+                                    <actions>
+                                        <set_objective cue="BtfIntro" step="6" action="objective.flyto" object="$Rings.{$ringCounter}" />
+                                    </actions>
+                                    <cues>
+                                        <cue name="BtfIntro_RingTest_Run_RingObjective_PositionCheck" checkinterval="0.5s">
+                                            <conditions>
+                                                <check_value value="player.ship.distanceto.{$Rings.{$ringCounter}} le 100m" />
+                                            </conditions>
+                                            <actions>
+                                                <set_value name="$ringCounter" exact="$ringCounter + 1" />
+                                                <do_if value="$ringCounter gt $Rings.count">
+                                                    <signal_cue cue="BtfIntro_RingTest_Run_Finish" />
+                                                </do_if>
+                                                <do_else>
+                                                    <signal_cue cue="BtfIntro_RingTest_Run_RingObjective" />
+                                                </do_else>
+                                            </actions>
+                                        </cue>
+                                    </cues>
+                                </cue>
+                                <cue name="BtfIntro_RingTest_Run_Finish">
+                                    <conditions>
+                                        <event_cue_signalled />
+                                    </conditions>
+                                    <actions>
+                                        <show_help custom="'FINISH'" />
                                     </actions>
                                 </cue>
                             </cues>
