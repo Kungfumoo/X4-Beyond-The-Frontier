@@ -51,6 +51,7 @@
                         <objective step="6" action="objective.flyto" text="'Fly to starting ring'" />
                         <objective step="7" action="objective.wait" text="'Await orders'" />
                         <objective step="8" action="objective.flyto" text="'Fly through rings'" />
+                        <objective step="9" action="objective.wait" text="'Await orders'" />
                     <!--
                         <objective step="3" action="objective.deploy"       text="{30179,6022}"          comment="deploy probe"/>
                         <objective step="4" action="objective.investigate"  text="{30179,6022}"          comment="select probe"/>
@@ -292,9 +293,9 @@
                                 <set_value name="$ringCounter" exact="1" />
                             </actions>
                             <cues>
-                                <cue name="BtfIntro_RingTest_Run_RingObjective">
+                                <cue name="BtfIntro_RingTest_Run_RingObjective"> <!-- Recursive-->
                                     <actions>
-                                        <set_objective cue="BtfIntro" step="6" action="objective.flyto" object="$Rings.{$ringCounter}" />
+                                        <set_objective cue="BtfIntro" step="8" action="objective.flyto" object="$Rings.{$ringCounter}" />
                                     </actions>
                                     <cues>
                                         <cue name="BtfIntro_RingTest_Run_RingObjective_PositionCheck" checkinterval="0.5s">
@@ -319,6 +320,7 @@
                                     </conditions>
                                     <actions>
                                         <show_help custom="'FINISH'" />
+                                        <set_objective_from_briefing cue="BtfIntro" step="9" />
                                     </actions>
                                 </cue>
                             </cues>
