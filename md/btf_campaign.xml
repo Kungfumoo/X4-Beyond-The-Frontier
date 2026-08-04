@@ -9,6 +9,7 @@
             <actions>
                 <find_sector name="$Sector" macro="macro.x1g_cluster00_sector001_macro" space="player.galaxy"/>
                 <find_sector name="$JumpTarget" macro="macro.x1g_cluster50_sector001_macro" space="player.galaxy"/>
+                <set_value name="$DroneMacro" exact="macro.ship_gen_s_fightingdrone_01_a_macro"/>
 
                 <!-- Setup Sapporo at start-->
                 <create_ship name="$CommandShip" capturable="false" macro="macro.ship_ter_l_flagship_01_a_macro" sector="$Sector" commandeerable="false">
@@ -31,6 +32,10 @@
                     <param name="Object" value="$CommandShip"/>
                     <param name="RequesterCue" value="namespace"/>
                 </run_actions>
+
+                <find_dockingbay name="$CommandShipInternalDock" object="$CommandShip">
+                    <match_dock storage="true" size="$DroneMacro.docksize"/>
+                </find_dockingbay>
 
                 <!-- TODO: Setup Mission -->
                 <create_mission
@@ -224,10 +229,11 @@
                         <event_cue_signalled />
                         <cue_is_complete cue="BtfIntro_MovementFreeTest" />
                     </conditions>
-                    <delay exact="3s" />
                     <actions>
                         <set_value name="$Rings" exact="[]" />
-                        <signal_cue_instantly cue="BtfIntro_RingTest_Spawn" />
+                    </actions>
+                    <delay exact="3s" />
+                    <actions>
                         <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="6" priority="90" />
                     </actions>
                     <delay exact="19s" />
@@ -237,9 +243,6 @@
                     </actions>
                     <cues>
                         <cue name="BtfIntro_RingTest_Spawn">
-                            <conditions>
-                                <event_cue_signalled />
-                            </conditions>
                             <actions>
                                 <!-- TODO: expand with more rings -->
                                 <set_value name="$ringLocations" exact="[
@@ -341,6 +344,10 @@
                         <cue_is_complete cue="BtfIntro_RingTest" />
                     </conditions>
                     <actions>
+                        <set_value name="$Drones" exact="[]" />
+                    </actions>
+                    <delay exact="3s" />
+                    <actions>
                         <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="9" priority="90" />
                         <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
                             <text line="27001" comment="Point towards the nearby ship then press $INPUT_ACTION_TARGET_NEXT_TARGET$ to make it your target." />
@@ -353,10 +360,63 @@
                     </actions>
                     <delay exact="38s"/>
                     <actions>
-                        <show_help custom="'SPAWN DRONES'" />
+                        <signal_cue cue="BtfIntro_TargetDroneTest_TargetObjective" />
                     </actions>
                     <cues>
-                        <!-- TODO: spawn drones-->
+                        <cue name="BtfIntro_TargetDroneTest_SpawnDrones">
+                            <actions>
+                                <do_all exact="3">
+                                    <create_ship name="$Drone" macro="$DroneMacro" dock="$CommandShipInternalDock" capturable="false">
+                                        <owner exact="$CommandShip.owner" overridenpc="true" />
+                                        <pilot>
+                                            <select race="race.drone" tags="tag.aipilot"/>
+                                        </pilot>
+                                    </create_ship>
+                                    <set_object_commander object="$Drone" commander="$CommandShip" />
+                                    <create_order id="'Follow'" object="$Drone">
+                                        <param name="target" value="$CommandShip" />
+                                    </create_order>
+
+                                    <append_to_list name="$Drones" exact="$Drone" />
+                                </do_all>
+                            </actions>
+                        </cue>
+                        <cue name="BtfIntro_TargetDroneTest_TargetObjective">
+                            <conditions>
+                                <event_cue_signalled />
+                            </conditions>
+                            <actions>
+                                <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="10" priority="90" />
+                                <set_value name="$TargetedDrones" exact="[]"/>
+                            </actions>
+                            <cues>
+                                <cue name="BtfIntro_TargetDroneTest_TargetObjective_ChangeCheck" instantiate="true">
+                                    <conditions>
+                                        <event_player_changed_target />
+                                    </conditions>
+                                    <actions>
+                                        <set_value name="$NewTarget" exact="event.param" />
+                                        <do_if value="$Drones.indexof.{$NewTarget} != 0 and $TargetedDrones.indexof.{$NewTarget} == 0">
+                                            <show_help custom="'TARGET'"/>
+                                            <append_to_list name="$TargetedDrones" exact="$NewTarget" />
+
+                                            <do_if value="$Drones.count == $TargetedDrones.count">
+                                                <signal_cue cue="BtfIntro_TargetDroneTest_Final" />
+                                                <cancel_cue cue="static" />
+                                            </do_if>
+                                        </do_if>
+                                    </actions>
+                                </cue>
+                            </cues>
+                        </cue>
+                        <cue name="BtfIntro_TargetDroneTest_Final">
+                            <conditions>
+                                <event_cue_signalled />
+                            </conditions>
+                            <actions>
+                                <show_help custom="'NEXT'"/>
+                            </actions>
+                        </cue>
                         <!-- TODO: target drone test -->
                     </cues>
                 </cue>
