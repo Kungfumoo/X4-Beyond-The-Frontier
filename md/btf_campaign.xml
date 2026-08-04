@@ -406,7 +406,7 @@
 
                                             <do_if value="$DroneGroup.count == 0">
                                                 <signal_cue cue="BtfIntro_TargetDroneTest_Final" />
-                                                <cancel_cue cue="static" />
+                                                <cancel_cue cue="static" /> <!-- cancelling static prevents additional instantiations -->
                                             </do_if>
                                             <do_else>
                                                 <set_objective action="objective.find" cue="BtfIntro" group="$DroneGroup" text="'Target Drone'" />
@@ -422,10 +422,27 @@
                             </conditions>
                             <actions>
                                 <set_objective_from_briefing cue="BtfIntro" step="11" />
-                                <!-- TODO: Despawn Drones -->
+                                <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="11" priority="90" />
+                            </actions>
+                            <delay exact="23s" />
+                            <actions>
+                                <do_for_each name="$Drone" in="$Drones">
+                                    <destroy_object object="$Drone" />
+                                </do_for_each>
+                                <signal_cue cue="BtfIntro_CombatTest" />
                             </actions>
                         </cue>
                     </cues>
+                </cue>
+                <cue name="BtfIntro_CombatTest">
+                    <conditions>
+                        <event_cue_signalled />
+                        <cue_is_complete cue="BtfIntro_TargetDroneTest" />
+                    </conditions>
+                    <delay exact="3s" />
+                    <actions>
+                        <show_help custom="'COMBAT TEST'" />
+                    </actions>
                 </cue>
             </cues>
         </cue>
