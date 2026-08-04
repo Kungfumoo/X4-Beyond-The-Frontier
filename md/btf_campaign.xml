@@ -57,6 +57,8 @@
                         <objective step="7" action="objective.wait" text="'Await orders'" />
                         <objective step="8" action="objective.flyto" text="'Fly through rings'" />
                         <objective step="9" action="objective.wait" text="'Await orders'" />
+                        <objective step="10" action="objective.find" text="'Target deployed drones'" />
+                        <objective step="11" action="objective.wait" text="'Await orders'" />
                     <!--
                         <objective step="3" action="objective.deploy"       text="{30179,6022}"          comment="deploy probe"/>
                         <objective step="4" action="objective.investigate"  text="{30179,6022}"          comment="select probe"/>
@@ -344,7 +346,8 @@
                         <cue_is_complete cue="BtfIntro_RingTest" />
                     </conditions>
                     <actions>
-                        <set_value name="$Drones" exact="[]" />
+                        <set_value name="$Drones" exact="[]" /> <!-- Used to keep tabs on created drones to despawn -->
+                        <create_group groupname="$DroneGroup" /> <!-- Used for the mission logic -->
                     </actions>
                     <delay exact="3s" />
                     <actions>
@@ -365,7 +368,8 @@
                     <cues>
                         <cue name="BtfIntro_TargetDroneTest_SpawnDrones">
                             <actions>
-                                <do_all exact="3">
+                                <!-- Spawn 2 drones and undock from ship -->
+                                <do_all exact="2">
                                     <create_ship name="$Drone" macro="$DroneMacro" dock="$CommandShipInternalDock" capturable="false">
                                         <owner exact="$CommandShip.owner" overridenpc="true" />
                                         <pilot>
@@ -377,6 +381,7 @@
                                         <param name="target" value="$CommandShip" />
                                     </create_order>
 
+                                    <add_to_group groupname="$DroneGroup" object="$Drone" />
                                     <append_to_list name="$Drones" exact="$Drone" />
                                 </do_all>
                             </actions>
@@ -387,7 +392,7 @@
                             </conditions>
                             <actions>
                                 <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="10" priority="90" />
-                                <set_value name="$TargetedDrones" exact="[]"/>
+                                <set_objective action="objective.find" cue="BtfIntro" group="$DroneGroup" text="'Target Drone'" />
                             </actions>
                             <cues>
                                 <cue name="BtfIntro_TargetDroneTest_TargetObjective_ChangeCheck" instantiate="true">
@@ -396,14 +401,16 @@
                                     </conditions>
                                     <actions>
                                         <set_value name="$NewTarget" exact="event.param" />
-                                        <do_if value="$Drones.indexof.{$NewTarget} != 0 and $TargetedDrones.indexof.{$NewTarget} == 0">
-                                            <show_help custom="'TARGET'"/>
-                                            <append_to_list name="$TargetedDrones" exact="$NewTarget" />
+                                        <do_if value="$DroneGroup.indexof.{$NewTarget} != 0">
+                                            <remove_from_group group="$DroneGroup" object="$NewTarget" />
 
-                                            <do_if value="$Drones.count == $TargetedDrones.count">
+                                            <do_if value="$DroneGroup.count == 0">
                                                 <signal_cue cue="BtfIntro_TargetDroneTest_Final" />
                                                 <cancel_cue cue="static" />
                                             </do_if>
+                                            <do_else>
+                                                <set_objective action="objective.find" cue="BtfIntro" group="$DroneGroup" text="'Target Drone'" />
+                                            </do_else>
                                         </do_if>
                                     </actions>
                                 </cue>
@@ -414,10 +421,10 @@
                                 <event_cue_signalled />
                             </conditions>
                             <actions>
-                                <show_help custom="'NEXT'"/>
+                                <set_objective_from_briefing cue="BtfIntro" step="11" />
+                                <!-- TODO: Despawn Drones -->
                             </actions>
                         </cue>
-                        <!-- TODO: target drone test -->
                     </cues>
                 </cue>
             </cues>
