@@ -355,9 +355,7 @@
                         <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
                             <text line="27001" comment="Point towards the nearby ship then press $INPUT_ACTION_TARGET_NEXT_TARGET$ to make it your target." />
                             <text line="27002" comment="Click on the nearby ship to make it your target." />
-                            <!-- <text line="27003" comment="Press $INPUT_ACTION_TARGET_NEXT_ENEMY$ to target the closest hostile." /> -->
                             <text line="27004" comment="Press $INPUT_ACTION_NEXT_TARGET_ACTION$ and $INPUT_ACTION_PREV_TARGET_ACTION$ to cycle through targets." />
-                            <!-- <text line="27005" comment="Press $INPUT_ACTION_TARGET_NEXT_ENEMY$ to target the closest hostile. This also locks the target." /> -->
                             <text line="27006" comment="Press $INPUT_ACTION_NEXT_TARGET_ACTION$ to cycle through targets." />
                         </show_help_multi>
                     </actions>
@@ -439,10 +437,39 @@
                         <event_cue_signalled />
                         <cue_is_complete cue="BtfIntro_TargetDroneTest" />
                     </conditions>
+                    <actions>
+                        <create_group groupname="$DroneGroup" />
+                    </actions>
                     <delay exact="3s" />
                     <actions>
-                        <show_help custom="'COMBAT TEST'" />
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="12" priority="90" />
+                        <show_help_multi log="true" position="1" force="true" allowclose="false" width="180">
+                            <text line="27003" comment="Press $INPUT_ACTION_TARGET_NEXT_ENEMY$ to target the closest hostile." />
+                            <text line="27100" comment="Hold $INPUT_STATE_FIRE_PRIMARY_WEAPON$ to shoot your active primary weapons." />
+                            <text line="27101" comment="Hold either $INPUT_STATE_FIRE_PRIMARY_WEAPON_AT_CURSOR$ or both mouse buttons to shoot at the mouse cursor position." />
+                            <text line="27102" comment="Press $INPUT_STATE_FIRE_SECONDARY_WEAPON$ to fire a missile." />
+                        </show_help_multi>
                     </actions>
+                    <cues>
+                        <cue name="BtfIntro_CombatTest_SpawnDrones">
+                            <actions>
+                                <!-- Spawn 2 drones and undock from ship -->
+                                <!-- TODO: drone death drops missiles -->
+                                <do_all exact="2">
+                                    <create_ship name="$Drone" macro="$DroneMacro" dock="$CommandShipInternalDock" capturable="false">
+                                        <owner exact="faction.criminal" overridenpc="true" />
+                                        <pilot>
+                                            <select race="race.drone" tags="tag.aipilot"/>
+                                        </pilot>
+                                    </create_ship>
+                                    <create_order id="'Follow'" object="$Drone"> <!-- TODO: fly to position away from ship or fly to player ship -->
+                                        <param name="target" value="$CommandShip" />
+                                    </create_order>
+                                    <add_to_group groupname="$DroneGroup" object="$Drone" />
+                                </do_all>
+                            </actions>
+                        </cue>
+                    </cues>
                 </cue>
             </cues>
         </cue>
