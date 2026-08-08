@@ -60,6 +60,8 @@
                         <objective step="10" action="objective.find" text="'Target deployed drones'" />
                         <objective step="11" action="objective.wait" text="'Await orders'" />
                         <objective step="12" action="objective.destroy" text="'Destroy deployed drones'" />
+                        <objective step="13" action="objective.collect" text="'Pick up missile container'" />
+                        <objective step="14" action="objective.destroy" text="'Destroy deployed drones with missiles'" />
                     <!--
                         <objective step="3" action="objective.deploy"       text="{30179,6022}"          comment="deploy probe"/>
                         <objective step="4" action="objective.investigate"  text="{30179,6022}"          comment="select probe"/>
@@ -453,8 +455,7 @@
                     </actions>
                     <delay exact="28s" />
                     <actions>
-                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="13" priority="90" />
-                        <set_objective action="objective.destroy" cue="BtfIntro" group="$DroneGroup" text="'Destroy Drone'" />
+                        <signal_cue cue="BtfIntro_CombatTest_LaserDrones" />
                     </actions>
                     <cues>
                         <cue name="BtfIntro_CombatTest_SpawnDrones">
@@ -474,7 +475,7 @@
                                 </do_all>
                             </actions>
                             <cues>
-                                <cue name="BtfIntro_CombatTest_SpawnDrones_TargetDestroyed">
+                                <cue name="BtfIntro_CombatTest_SpawnDrones_TargetDestroyed" instantiate="true">
                                     <conditions>
                                         <event_object_destroyed group="$DroneGroup" />
                                     </conditions>
@@ -482,12 +483,73 @@
                                         <spawn_drop object="event.object" drop="'drops_flightschool_guided_missile'"/>
                                         <find_object name="$Drop" class="class.collectable" space="event.object.zone"/>
                                         <set_object_min_hull object="$Drop" exact="1"/>
-                                        <!-- <set_objective cue="GameStart_Tutorial" action="objective.collect" object="$Drop"/> -->
-                                        <!-- <signal_cue cue="ShowHint_CollectItemInSpace"/> -->
+                                        <remove_from_group group="$DroneGroup" object="event.object" />
                                     </actions>
                                 </cue>
-                                <!-- TODO: when both drones destroy, set objective on picking up missiles-->
-                                <!-- TODO: spawn drones to destroy with missiles -->
+                            </cues>
+                        </cue>
+                        <cue name="BtfIntro_CombatTest_LaserDrones">
+                            <conditions>
+                                <event_cue_signalled />
+                            </conditions>
+                            <actions>
+                                <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="13" priority="90" />
+                                <set_objective action="objective.destroy" cue="BtfIntro" group="$DroneGroup" text="'Destroy Drone with missiles'" />
+                            </actions>
+                            <cues>
+                                <cue name="BtfIntro_CombatTest_LaserDrones_AllDestroyedCheck" checkinterval="0.5s">
+                                    <conditions>
+                                        <check_value value="$DroneGroup.count == 0" />
+                                    </conditions>
+                                    <actions>
+                                        <signal_cue cue="BtfIntro_CombatTest_LaserDrones_MissilePickup" />
+                                    </actions>
+                                </cue>
+                                <!-- TODO: Prevent bricking mission by destroying cargo containers -->
+                                <cue name="BtfIntro_CombatTest_LaserDrones_MissilePickup">
+                                    <conditions>
+                                        <event_cue_signalled />
+                                    </conditions>
+                                    <actions>
+                                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="14" priority="90" />
+                                        <find_object name="$Drop" class="class.collectable" space="player.ship.zone"/>
+                                        <set_objective action="objective.collect" cue="BtfIntro" object="$Drop" text="'Collect missile container'" />
+                                    </actions>
+                                    <cues>
+                                        <cue name="BtfIntro_CombatTest_LaserDrones_MissilePickup_Check">
+                                            <conditions>
+                                                <event_player_collected_ammo />
+                                            </conditions>
+                                            <actions>
+                                                <signal_cue cue="BtfIntro_CombatTest_MissileDrones" />
+                                            </actions>
+                                        </cue>
+                                    </cues>
+                                </cue>
+                            </cues>
+                        </cue>
+                        <cue name="BtfIntro_CombatTest_MissileDrones">
+                            <conditions>
+                                <event_cue_signalled />
+                            </conditions>
+                            <actions>
+                                <reset_cue cue="BtfIntro_CombatTest_SpawnDrones" />
+                                <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="15" priority="90" />
+                            </actions>
+                            <delay exact="30s" />
+                            <actions>
+                                <set_objective action="objective.destroy" cue="BtfIntro" group="$DroneGroup" text="'Destroy Drone with missiles'" />
+                            </actions>
+                            <cues>
+                                <cue name="BtfIntro_CombatTest_MissileDrones_AllDestroyedCheck" checkinterval="0.5s">
+                                    <conditions>
+                                        <cue_is_complete cue="BtfIntro_CombatTest_SpawnDrones" />
+                                        <check_value value="$DroneGroup.count == 0" />
+                                    </conditions>
+                                    <actions>
+                                        <show_help custom="'NEXT'" />
+                                    </actions>
+                                </cue>
                             </cues>
                         </cue>
                     </cues>
