@@ -307,7 +307,7 @@
                                     <cues>
                                         <cue name="BtfIntro_RingTest_Run_RingObjective_PositionCheck" checkinterval="0.5s">
                                             <conditions>
-                                                <check_value value="player.ship.distanceto.{$Rings.{$ringCounter}} le 100m" />
+                                                <check_value value="player.ship.distanceto.{$Rings.{$ringCounter}} le 200m" />
                                             </conditions>
                                             <actions>
                                                 <set_value name="$ringCounter" exact="$ringCounter + 1" />
