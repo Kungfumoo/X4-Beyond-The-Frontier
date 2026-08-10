@@ -120,9 +120,17 @@
                             - boom boom cutscene
                             - complete mission rather then hide it?
                         -->
+                        <play_sound sound="'explosion_large'" object="player.ship" />
+                        <add_effect object="player.ship" effect="'warpteleport'"/>
                         <warp object="player.ship" sector="$JumpTarget">
                             <safepos value="position.[0,0,10km]" radius="2km"/>
                         </warp>
+                        <!-- TODO: apply completely empty loadout -->
+                        <!--
+                        Example code:
+                        <generate_loadout result="$loadout" faction="faction.argon" macro="$Carrier.macro" level="$Carrier.loadoutlevel"/>
+                        <apply_loadout object="$Carrier" loadout="$loadout.{1}"/>
+                        -->
                         <remove_mission cue="BtfIntro" />
                         <cancel_cue cue="BtfIntro" />
                     </actions>
