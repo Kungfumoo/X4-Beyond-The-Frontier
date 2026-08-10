@@ -37,7 +37,6 @@
                     <match_dock storage="true" size="$DroneMacro.docksize"/>
                 </find_dockingbay>
 
-                <!-- TODO: Setup Mission -->
                 <create_mission
                     cue="BtfIntro"
                     type="missiontype.plot"
@@ -62,19 +61,10 @@
                         <objective step="12" action="objective.destroy" text="'Destroy deployed drones'" />
                         <objective step="13" action="objective.collect" text="'Pick up missile container'" />
                         <objective step="14" action="objective.destroy" text="'Destroy deployed drones with missiles'" />
-                    <!--
-                        <objective step="3" action="objective.deploy"       text="{30179,6022}"          comment="deploy probe"/>
-                        <objective step="4" action="objective.investigate"  text="{30179,6022}"          comment="select probe"/>
-                        <objective step="5" action="objective.investigate"  text="{30179,6023}"          comment="investigate asteroids"/>
-                        <objective step="6" action="objective.activate"     text="{30179,6024}"          comment="Activate mining equipment"/>
-                        <objective step="7" action="objective.wait"         text="{30179,6025}"          comment="Observe mining operation"/>
-                    -->
+                        <objective step="15" action="objective.wait" text="'Await orders'" />
+                        <objective step="16" action="objective.wait" text="'Await Jump procedure'" />
                     </briefing>
                 </create_mission>
-
-                <!-- TODO: flight school tutorial -->
-
-                <!-- TODO: Skip (shift-x) to start game to seizewell -->
             </actions>
             <delay exact="5s" />
             <actions>
@@ -97,6 +87,12 @@
                                 <event_conversation_next_section actor="$CommandShip.pilot" section="skipper_xbtf_tutorial" />
                             </conditions>
                             <actions>
+                                <cancel_cue cue="BtfIntro_AccelerateTest" />
+                                <cancel_cue cue="BtfIntro_DecelerateTest" />
+                                <cancel_cue cue="BtfIntro_MovementFreeTest" />
+                                <cancel_cue cue="BtfIntro_RingTest" />
+                                <cancel_cue cue="BtfIntro_TargetDroneTest" />
+                                <cancel_cue cue="BtfIntro_CombatTest" />
                                 <signal_cue cue="BtfIntro_Jump" />
                             </actions>
                         </cue>
@@ -106,6 +102,14 @@
                     <conditions>
                         <event_cue_signalled />
                     </conditions>
+                    <actions>
+                        <set_objective_from_briefing cue="BtfIntro" step="16" />
+                    </actions>
+                    <delay exact="1s" />
+                    <actions>
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="20" priority="90" />
+                    </actions>
+                    <delay exact="51s" />
                     <actions>
                         <show_help custom="'JUMP SEQUENCE'"/>
                         <!--
@@ -547,12 +551,38 @@
                                         <check_value value="$DroneGroup.count == 0" />
                                     </conditions>
                                     <actions>
-                                        <show_help custom="'NEXT'" />
+                                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="16" priority="90" />
+                                    </actions>
+                                    <delay exact="39s" />
+                                    <actions>
+                                        <signal_cue cue="BtfIntro_Finale" />
                                     </actions>
                                 </cue>
                             </cues>
                         </cue>
                     </cues>
+                </cue>
+                <cue name="BtfIntro_Finale">
+                    <conditions>
+                        <event_cue_signalled />
+                        <cue_is_complete cue="BtfIntro_CombatTest" />
+                    </conditions>
+                    <actions>
+                        <set_objective_from_briefing cue="BtfIntro" step="15" />
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="17" priority="90" />
+                    </actions>
+                    <delay exact="38s" />
+                    <actions>
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="18" priority="90" />
+                    </actions>
+                    <delay exact="50s" />
+                    <actions>
+                        <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="19" priority="90" />
+                    </actions>
+                    <delay exact="20s" />
+                    <actions>
+                        <signal_cue cue="BtfIntro_Jump" />
+                    </actions>
                 </cue>
             </cues>
         </cue>
