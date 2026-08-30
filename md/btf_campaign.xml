@@ -108,10 +108,11 @@
                     <delay exact="1s" />
                     <actions>
                         <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="20" priority="90" />
-                        <set_entity_traits entity="player.entity" hidden="true"/> <!-- TODO: reshow! -->
+                        <set_entity_traits entity="player.entity" hidden="true"/>
                         <play_cutscene key="'btfintro_jump'" targetmonitor="false" abortable="true">
                             <param name="target_object" object="player.entity"/>
                         </play_cutscene>
+                        <add_effect object="player.ship" effect="'xbtf_jump_effect'" />
                     </actions>
                     <delay exact="51s" />
                     <actions>
@@ -126,9 +127,11 @@
                         -->
                         <play_sound sound="'explosion_large'" object="player.ship" />
                         <add_effect object="player.ship" effect="'warpteleport'"/>
+                        <add_effect object="player.ship" effect="'cpfx_gate_01'" />
                         <warp object="player.ship" sector="$JumpTarget">
                             <safepos value="position.[0,0,10km]" radius="2km"/>
                         </warp>
+                        <set_entity_traits entity="player.entity" hidden="false"/>
                         <!-- TODO: apply completely empty loadout -->
                         <!--
                         Example code:

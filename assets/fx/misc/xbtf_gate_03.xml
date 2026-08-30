@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<components>
+	<component name="xbtf_gate_03" class="destructible">
+		<properties>
+			<hull max="200000"/>
+		</properties>
+		<source geometry="assets\legacy\fx\misc\cpfx_gate_01_data"/>
+		<layers>
+			<layer>
+				<waypoints/>
+				<lights>
+					<omni name="XU Omni01" shadow="0" r="76" g="190" b="255" range="12.5" shadowrange="12.5" lighteffect="1" trigger="1" intensity="1">
+						<animations/>
+						<lightanimations/>
+						<offset>
+							<position x="0" y="0" z="3.636421"/>
+						</offset>
+					</omni>
+				</lights>
+			</layer>
+		</layers>
+		<connections>
+			<connection name="Connection001" tags="part nocollision animation  ">
+				<offset>
+					<position x="0" y="-3.036235E-06" z="44.506023"/>
+				</offset>
+				<animations>
+					<animation name="loop" start="0" end="2400"/>
+				</animations>
+				<parts>
+					<part name="anim_cloud_b">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="arcp1.cpfx_jump_ring"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="29.13548" y="29.13424" z="57.34923"/>
+							<center x="0" y="-7.784624E-07" z="-13.05947"/>
+						</size>
+						<size_raw>
+							<max x="29.13548" y="29.13424" z="18.9157"/>
+							<center x="0" y="-7.784624E-07" z="9.536743E-07"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection003" tags="part nocollision animation textureanimation  ">
+				<offset>
+					<position x="-3.634109E-04" y="-6.449707E-05" z="44.60502"/>
+				</offset>
+				<animations>
+					<animation name="loop" start="0" end="2400"/>
+				</animations>
+				<parts>
+					<part name="fx_anim_highway_distortion">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="effects.distortion_master_geometry"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="4417.876" y="4417.875" z="1808.019"/>
+							<center x="-1.248703E-04" y="6.449707E-05" z="-3.910065E-05"/>
+						</size>
+						<size_raw>
+							<max x="11.39069" y="11.39069" z="4.66165"/>
+							<center x="-4.365575E-10" y="-7.421477E-10" z="0"/>
+						</size_raw>
+						<uv_animations>
+							<uv_animation mapchannel="1">
+								<uv_property name="u_offset" controller="linear_float">
+									<key frame="0" value="0"/>
+									<key frame="2400" value="-2"/>
+								</uv_property>
+							</uv_animation>
+						</uv_animations>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection004" tags="part nocollision animation  ">
+				<offset>
+					<position x="0" y="-3.036228E-06" z="31.40105"/>
+				</offset>
+				<animations>
+					<animation name="loop" start="0" end="2400"/>
+				</animations>
+				<parts>
+					<part name="nocollision_cloud_a">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="arcp1.cpfx_jump_ring"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="29.12519" y="29.12396" z="54.59275"/>
+							<center x="-1.907349E-06" y="-4.593166E-06" z="3.844991"/>
+						</size>
+						<size_raw>
+							<max x="29.12519" y="29.12396" z="19.10106"/>
+							<center x="-1.907349E-06" y="-4.593166E-06" z="2.861023E-06"/>
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection005" tags="part nocollision animation textureanimation  ">
+				<offset>
+					<position x="0" y="0" z="45.374574"/>
+				</offset>
+				<animations>
+					<animation name="loop" start="0" end="2400"/>
+				</animations>
+				<parts>
+					<part name="anim_tube_b">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="arcp1.cpfx_jump_beams"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="20.81325" y="20.81325" z="101.803"/>
+							<center x="0" y="0" z="-18.80428"/>
+						</size>
+						<size_raw>
+							<max x="20.81325" y="20.81325" z="82.06342"/>
+							<center x="0" y="-9.536743E-07" z="-41.03171"/>
+						</size_raw>
+						<uv_animations>
+							<uv_animation mapchannel="1">
+								<uv_property name="u_offset" controller="linear_float">
+									<key frame="0" value="0"/>
+									<key frame="2400" value="80"/>
+								</uv_property>
+								<uv_property name="v_offset" controller="linear_float">
+									<key frame="0" value="-0"/>
+									<key frame="2400" value="-1"/>
+								</uv_property>
+							</uv_animation>
+						</uv_animations>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection008" tags="part nocollision animation textureanimation  ">
+				<offset>
+					<position x="0" y="0" z="10.374574"/>
+				</offset>
+				<animations>
+					<animation name="loop" start="0" end="2400"/>
+				</animations>
+				<parts>
+					<part name="anim_wusch">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="effects.gradient_white_add"/>
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="12.43499" y="7.327638" z="5.983537"/>
+							<center x="0" y="0" z="-2.427814"/>
+						</size>
+						<size_raw>
+							<max x="12.43499" y="7.327638" z="8.41135"/>
+							<center x="0" y="0" z="-2.427814"/>
+						</size_raw>
+						<uv_animations>
+							<uv_animation mapchannel="1">
+								<uv_property name="u_offset" controller="linear_float">
+                                    <key frame="0" value="0"/>
+									<key frame="1323" value="0"/>
+									<key frame="1338" value="0.1"/>
+									<key frame="1395" value="0.62"/>
+									<key frame="1800" value="0.619"/>
+									<key frame="1977" value="0.1"/>
+									<key frame="2040" value="0"/>
+									<key frame="2400" value="0"/>
+								</uv_property>
+							</uv_animation>
+						</uv_animations>
+					</part>
+				</parts>
+			</connection>
+		</connections>
+	</component>
+</components>

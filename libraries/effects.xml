@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff>
+    <add sel="/effects">
+        <effect name="xbtf_jump_effect" alignment="object">
+            <elements>
+                <element id="1" ref="xbtf_gate_01_macro" duration="55.0" fadeout="1.0" />
+                <element id="2" ref="xbtf_gate_02_macro" delay="30.0" fadein="1.0" duration="25.0" fadeout="1.0" />
+                <element id="3" ref="xbtf_gate_03_macro" delay="30.0" fadein="1.0" duration="25.0" fadeout="1.0" />
+                <element id="4" ref="cpfx_gate_01_macro" delay="45.0" fadein="1.0" duration="10.0" fadeout="1.0"/>
+                <element id="5" ref="effect_dummy_macro" duration="55.0" >
+                    <force range="50" falloff="1">
+                    <rumble>
+                        <camera>
+                        <component frequency="7.0" attackduration="30.0" sustainduration="20.0" releaseduration="5.0">
+                            <amplitude randomize="false">
+                                <position x="0" y="0.008" z="0"></position>
+                            </amplitude>
+                        </component>
+                        </camera>
+                        <controller>
+                            <high startvalue="0.0" sustainvalue="0.2" endvalue="0.0" attackduration="0.0" sustainduration="0.2" releaseduration="0.0" />
+                        </controller>
+                    </rumble>
+                    </force>
+                </element>
+                <!-- Near Lightning Sound -->
+                <element id="6" ref="effect_dummy_macro" duration="2.5" delay="35.0">
+                    <sound ref="region_lightning_near_01"/>
+                </element>
+                <!-- Final flash Area Damage -->
+                <element id="7" ref="fog_lightning_02_macro" delay="35.0" alignment="object" minscale="1.0" maxscale="2.2" emitterspace="zone" duration="2.3" fadein="0.001" fadeout="0.3" />
+            </elements>
+        </effect>
+    </add>
+</diff>

@@ -7,5 +7,10 @@
 
         <!-- Engines -->
         <entry name="engine_ter_s_tutorial_01_mk1_macro" value="extensions\x4_btf\assets\props\engines\macros\engine_ter_s_tutorial_01_mk1_macro" />
+
+        <!-- Misc -->
+        <entry name="xbtf_gate_01_macro" value="extensions\x4_btf\assets\fx\misc\macros\xbtf_gate_01_macro" />
+        <entry name="xbtf_gate_02_macro" value="extensions\x4_btf\assets\fx\misc\macros\xbtf_gate_02_macro" />
+        <entry name="xbtf_gate_03_macro" value="extensions\x4_btf\assets\fx\misc\macros\xbtf_gate_03_macro" />
     </add>
 </diff>

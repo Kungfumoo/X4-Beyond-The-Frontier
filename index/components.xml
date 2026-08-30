@@ -2,5 +2,8 @@
 <diff>
     <add sel="/index">
         <entry name="startmenu_x4btf" value="extensions\x4_btf\assets\cutscenecore\startmenu_x4btf" />
+        <entry name="xbtf_gate_01" value="extensions\x4_btf\assets\fx\misc\xbtf_gate_01" />
+        <entry name="xbtf_gate_02" value="extensions\x4_btf\assets\fx\misc\xbtf_gate_02" />
+        <entry name="xbtf_gate_03" value="extensions\x4_btf\assets\fx\misc\xbtf_gate_03" />
     </add>
 </diff>
