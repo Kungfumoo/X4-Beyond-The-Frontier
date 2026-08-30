@@ -108,6 +108,10 @@
                     <delay exact="1s" />
                     <actions>
                         <speak actor="$CommandShip.pilot" recipient="player.entity" page="19530001" line="20" priority="90" />
+                        <set_entity_traits entity="player.entity" hidden="true"/> <!-- TODO: reshow! -->
+                        <play_cutscene key="'btfintro_jump'" targetmonitor="false" abortable="true">
+                            <param name="target_object" object="player.entity"/>
+                        </play_cutscene>
                     </actions>
                     <delay exact="51s" />
                     <actions>

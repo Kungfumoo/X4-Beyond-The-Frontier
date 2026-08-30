@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cutscene xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../x4source/cutscenes/cutscenes.xsd">
+
+  <!-- For best results, position the playership well away from the sector center before playback. -->
+  <director key="btfintro_jump" />
+
+  <!-- Environment in which the scene will take place. -->
+  <environments>
+    <environment_implicit name="scenezone" zone="@auto:target_object" />
+    <object_group name="target_group">
+      <reference object="target_object" />
+    </object_group>
+
+    </environments>
+
+  <presentation>
+    <actions>
+      <sequence name="XbtfIntroSequence" start="0">
+        <shot name="Cockpit" environment="scenezone" duration="onevent:stopscene">
+            <!-- Shot from cockpit from pov of player -->
+            <camera>
+                <position>
+                    <reference object="target_object" z="0" />
+                </position>
+                <lookdirection>
+                    <reference object="target_object" head="1" x="0" y="0" z="1" />
+                </lookdirection>
+            </camera>
+        </shot>
+      </sequence>
+    </actions>
+  </presentation>
+</cutscene>
